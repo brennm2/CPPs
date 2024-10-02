@@ -1,6 +1,6 @@
 MAKEFLAGS += -s
 
-NAME = megaphone
+NAME = My_Awesome_PhoneBook
 
 LIBFT = ./libs/libft.a
 
@@ -13,7 +13,11 @@ RED=\033[0;31m
 YELLOW=\033[1;93m
 NC=\033[0m
 
-SRC = Megaphone.cpp
+SRC = main.cpp \
+	Contact.cpp \
+	Contact.hpp \
+	Phonebook.cpp \
+	Phonebook.hpp
 
 OBJ = $(SRC:.cpp=.o)
 
