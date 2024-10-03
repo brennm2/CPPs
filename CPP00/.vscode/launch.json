@@ -4,7 +4,7 @@
 		"name": "(gdb) Launch",
 		"type": "cppdbg",
 		"request": "launch",
-		"program": "/home/bde-souz/CPPs/CPP00/ex01/My_Awesome_PhoneBook",
+		"program": "/home/bde-souz/CPPs/CPP00/ex02/job",
 		"args": [],
 		"stopAtEntry": false,
 		"cwd": "${fileDirname}",
