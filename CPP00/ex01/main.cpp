@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 18:41:13 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/03 12:09:39 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/10/03 17:16:44 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,15 @@ bool	fail_cin(void)
 	if (std::cin.fail() || std::cin.eof())
 	{
 		std::cout << "\033[31m" <<"\nInvalid Option\n\n" << "\033[0m";
-		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		// std::cin.clear();
+		// std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		return (false);
 	}
 	else
 		return (true);
 }
+
+
 
 
 bool	option_Add(PhoneBook &Phone_book, int index)
@@ -36,42 +38,59 @@ bool	option_Add(PhoneBook &Phone_book, int index)
 	int	PhoneNumber;
 
 	std::cout << "Enter First Name: ";
-	std::cin >> FirstName;
-	if (std::cin.fail() || std::cin.eof())
-		return (fail_cin());
+	std::getline(std::cin, FirstName);
+	if (FirstName.empty())
+	{
+		std::cout << "\033[31m" <<"\nInvalid Option (Empty line)\n\n" << "\033[0m";
+		return false;
+	}
 	std::cout << "\n";
 
-	std::cout << "Enter First Last Name: ";
-	std::cin >> LastName;
-	if (std::cin.fail() || std::cin.eof())
-		return (fail_cin());
+	std::cout << "Enter Last Name: ";
+	std::getline(std::cin, LastName);
+	if (LastName.empty())
+	{
+		std::cout << "\033[31m" <<"\nInvalid Option (Empty line)\n\n" << "\033[0m";
+		return false;
+	}
 	std::cout << "\n";
 
 	std::cout << "Enter Nick Name: ";
-	std::cin >> NickName;
-	if (std::cin.fail() || std::cin.eof())
-		return (fail_cin());
+	std::getline(std::cin, NickName);
+	if (NickName.empty())
+	{
+		std::cout << "\033[31m" <<"\nInvalid Option (Empty line)\n\n" << "\033[0m";
+		return false;
+	}
 	std::cout << "\n";
 
 	std::cout << "Enter Dakerst Secret: ";
 	std::getline(std::cin, DarkestSecret);
-	if (std::cin.fail() || std::cin.eof())
-		return (fail_cin());
+	if (DarkestSecret.empty())
+	{
+		std::cout << "\033[31m" <<"\nInvalid Option (Empty line)\n\n" << "\033[0m";
+		return false;
+	}
 	std::cout << "\n";
 
 	std::cout << "Enter Phone Number: ";
 	std::cin >> PhoneNumber;
 	if (std::cin.fail() || std::cin.eof())
-		return (fail_cin());
+	{
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::cout << "\033[31m" <<"\nInvalid Option\n\n" << "\033[0m";
+		return false;
+	}
 	std::cout << "\n";
 
 	Phone_book.Set_PhoneBookContacts(FirstName, LastName, NickName,
 		DarkestSecret, PhoneNumber, index);
 	std::cout << "\033[32m" << "Contact added!\n\n" << "\033[0m";
+	std::cin.clear();
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	return (true);
 }
-
-
 
 int main()
 {
@@ -82,24 +101,29 @@ int main()
 	Phone_Book.set_ContactsIndex();
 	while(1)
 	{
+		if (std::cin.eof())
+		{
+			std::cout << "Exiting now\n";
+			break;
+		}
 		std::cout << "\033[1;34m" << "Not so Awesome Phonebook!\n" << "\033[0m";
 		std::cout << "What do you want to do?\n";
 		std::cout << "\n ADD | SEARCH | EXIT\n";
 		std::getline(std::cin, option);
 
+
 		if (option == "ADD")
 		{
 			if (index == 7)
 				option_Add(Phone_Book, 7);
-			else if (option_Add(Phone_Book, index) == 1)
+			else if (option_Add(Phone_Book, index) == true)
 				index++;
 		}
 		else if (option == "SEARCH")
 		{
-			Phone_Book.print_columns();
-			Phone_Book.get_ContactInfo();
+			if (Phone_Book.print_columns(index) == true)
+				Phone_Book.get_ContactInfo();
 		}
-			
 		else if (option == "EXIT" || std::cin.eof())
 		{
 			std::cout << "Exiting now\n";
@@ -108,8 +132,7 @@ int main()
 		else
 		{
 			std::cout << "\033[31m" <<"\nInvalid Option\n\n" << "\033[0m";
-			//std::cin.clear();
-			//std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			std::cin.clear();
 		}
 	}
 }

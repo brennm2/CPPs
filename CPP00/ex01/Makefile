@@ -1,6 +1,6 @@
 MAKEFLAGS += -s
 
-NAME = My_Awesome_PhoneBook
+NAME = phonebook
 
 LIBFT = ./libs/libft.a
 
