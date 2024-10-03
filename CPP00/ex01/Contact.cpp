@@ -6,11 +6,20 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 18:26:09 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/02 18:40:10 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/10/03 11:38:22 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
+
+void Contact::print_ContactInfo()
+{
+	std::cout << "\n" <<"First Name: " << FirstName << "\n";
+	std::cout << "Last Name: " << LastName << "\n";
+	std::cout << "Nick Name: " << NickName << "\n";
+	std::cout << "Darkest Secret: " << DarkestSecret << "\n";
+	std::cout << "Phone Number: " << PhoneNumber << "\n\n";
+}
 
 void Contact::set_ContactInfo(std::string FName, std::string LName, std::string NName, std::string DSecret, int PNumber, int i)
 {

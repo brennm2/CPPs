@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 18:40:59 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/02 18:46:23 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/10/03 11:52:11 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	PhoneBook::print_columns()
 	std::string Lname;
 	std::string Nname;
 
+	std::cout << "\n";
 	std::cout << std::right << std::setw(10) << "Index" << "|"
 			<< "First Name" << "|"
 			<< "Last Name" << "|"
@@ -48,5 +49,24 @@ void	PhoneBook::print_columns()
 		std::cout << Lname << "|";
 		std::cout << Nname << "|";
 		std::cout << "\n";
+	}
+	std::cout << "\n";
+}
+
+void	PhoneBook::get_ContactInfo()
+{
+	int	option;
+
+	std::cout << "Which contact do you want to see?\n";
+	std::cin >> option;
+	if (std::cin.fail() || std::cin.eof() || (option <= 0 || option >= 9))
+	{
+		std::cout << "\033[31m" <<"\nInvalid Option\n\n" << "\033[0m";
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	}
+	else
+	{
+		Contacts[option - 1].print_ContactInfo();
 	}
 }

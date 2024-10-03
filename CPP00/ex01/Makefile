@@ -15,9 +15,7 @@ NC=\033[0m
 
 SRC = main.cpp \
 	Contact.cpp \
-	Contact.hpp \
-	Phonebook.cpp \
-	Phonebook.hpp
+	PhoneBook.cpp 
 
 OBJ = $(SRC:.cpp=.o)
 

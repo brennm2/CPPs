@@ -6,20 +6,18 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 18:41:13 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/02 18:56:50 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/10/03 12:09:39 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 
-
-
 bool	fail_cin(void)
 {
 	if (std::cin.fail() || std::cin.eof())
 	{
-		std::cout << "\nInvalid Option\n";
+		std::cout << "\033[31m" <<"\nInvalid Option\n\n" << "\033[0m";
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		return (false);
@@ -39,8 +37,8 @@ bool	option_Add(PhoneBook &Phone_book, int index)
 
 	std::cout << "Enter First Name: ";
 	std::cin >> FirstName;
-	if (!fail_cin())
-		return (false);
+	if (std::cin.fail() || std::cin.eof())
+		return (fail_cin());
 	std::cout << "\n";
 
 	std::cout << "Enter First Last Name: ";
@@ -56,7 +54,7 @@ bool	option_Add(PhoneBook &Phone_book, int index)
 	std::cout << "\n";
 
 	std::cout << "Enter Dakerst Secret: ";
-	std::cin >> DarkestSecret;
+	std::getline(std::cin, DarkestSecret);
 	if (std::cin.fail() || std::cin.eof())
 		return (fail_cin());
 	std::cout << "\n";
@@ -69,6 +67,7 @@ bool	option_Add(PhoneBook &Phone_book, int index)
 
 	Phone_book.Set_PhoneBookContacts(FirstName, LastName, NickName,
 		DarkestSecret, PhoneNumber, index);
+	std::cout << "\033[32m" << "Contact added!\n\n" << "\033[0m";
 	return (true);
 }
 
@@ -76,32 +75,31 @@ bool	option_Add(PhoneBook &Phone_book, int index)
 
 int main()
 {
-	PhoneBook Phone_book;
+	PhoneBook Phone_Book;
 	std::string option;
 	int	index = 0;
 
-	Phone_book.set_ContactsIndex();
+	Phone_Book.set_ContactsIndex();
 	while(1)
 	{
-		if (std::cin.eof())
-		{
-			std::cout << "\nExiting now\n\n";
-			return (0);
-		}
-		std::cout << "Not so Awesome Phonebook!\n";
+		std::cout << "\033[1;34m" << "Not so Awesome Phonebook!\n" << "\033[0m";
 		std::cout << "What do you want to do?\n";
 		std::cout << "\n ADD | SEARCH | EXIT\n";
-		std::cin >> option;
+		std::getline(std::cin, option);
 
 		if (option == "ADD")
 		{
-			if (index == 1)
-				option_Add(Phone_book, 1);
-			else if (option_Add(Phone_book, index) == 1)
+			if (index == 7)
+				option_Add(Phone_Book, 7);
+			else if (option_Add(Phone_Book, index) == 1)
 				index++;
 		}
 		else if (option == "SEARCH")
-			Phone_book.print_columns();
+		{
+			Phone_Book.print_columns();
+			Phone_Book.get_ContactInfo();
+		}
+			
 		else if (option == "EXIT" || std::cin.eof())
 		{
 			std::cout << "Exiting now\n";
@@ -109,9 +107,9 @@ int main()
 		}
 		else
 		{
-			std::cout << "\nInvalid Option\n\n";
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			std::cout << "\033[31m" <<"\nInvalid Option\n\n" << "\033[0m";
+			//std::cin.clear();
+			//std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		}
 	}
 }
