@@ -3,7 +3,7 @@ MAKEFLAGS += -s
 NAME = account
 
 CC = c++
-CCFLAGS = -std=c++98
+CCFLAGS = -Wall -Werror -Wextra -std=c++98
 RM = rm
 RMFLAGS= -f
 GREEN=\033[0;32m

@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 18:41:13 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/04 13:58:32 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/10/04 17:41:35 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ int main()
 	Phonebook Phone_Book;
 	std::string option;
 	int	index = 0;
+	int	index2 = 0;
 
 	Phone_Book.set_ContactsIndex();
 	while(1)
@@ -111,15 +112,22 @@ int main()
 		{
 			if (index == 8)
 			{
-				option_Add(Phone_Book, 7);
+				option_Add(Phone_Book, index);
 			}
 			else if (option_Add(Phone_Book, index) == true)
+			{
 				index++;
+				index = index % 8;
+				index2++;
+				if (index2 >= 8)
+					index2 = 8;
+				
+			}
 		}
 		else if (option == "SEARCH")
 		{
-			if (Phone_Book.print_columns(index) == true)
-				Phone_Book.get_ContactInfo(index);
+			if (Phone_Book.print_columns(index2) == true)
+				Phone_Book.get_ContactInfo(index2);
 		}
 		else if (option == "EXIT" || std::cin.eof())
 		{
