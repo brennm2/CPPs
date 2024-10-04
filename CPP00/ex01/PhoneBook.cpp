@@ -6,26 +6,26 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 18:40:59 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/03 17:12:36 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/10/04 13:52:38 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
-void	PhoneBook::set_ContactsIndex()
+void	Phonebook::set_ContactsIndex()
 {
 	for(int i = 1; i <= 8; i++)
 		Contacts[i - 1].set_ContactIndex(i);
 }
 
-void	PhoneBook::Set_PhoneBookContacts(std::string FName, std::string LName,
+void	Phonebook::Set_PhoneBookContacts(std::string FName, std::string LName,
 	std::string NName, std::string DSecret, int PNumber, int Index)
 {
 	Contacts[Index].set_ContactInfo(FName, LName, NName, DSecret, PNumber, Index);
 }
 
-bool	PhoneBook::print_columns(int index_out)
+bool	Phonebook::print_columns(int index_out)
 {
 	int	list_position;
 	std::string Fname;
@@ -44,14 +44,12 @@ bool	PhoneBook::print_columns(int index_out)
 				<< std::right << std::setw(10) << "First Name" << "|"
 				<< std::right << std::setw(10) << "Last Name" << "|"
 				<< std::right << std::setw(10) << "Nick Name" << "|" << "\n";
-				
 		for(int i = 0; i < index_out; i++)
 		{
 			Fname = Contacts[i].get_first_name();
 			Lname = Contacts[i].get_last_name();
 			Nname = Contacts[i].get_nick_name();
 			list_position = Contacts[i].get_index();
-
 			std::cout << std::right << std::setw(10) << list_position << "|";
 			std::cout << std::right << std::setw(10) << Fname << "|";
 			std::cout << std::right << std::setw(10) << Lname << "|";
@@ -63,7 +61,7 @@ bool	PhoneBook::print_columns(int index_out)
 	}
 }
 
-void	PhoneBook::get_ContactInfo()
+void	Phonebook::get_ContactInfo(int index)
 {
 	int	option;
 
@@ -73,6 +71,10 @@ void	PhoneBook::get_ContactInfo()
 	if (std::cin.fail() || std::cin.eof() || (option < 0 || option >= 9))
 	{
 		std::cout << "\033[31m" <<"\nInvalid Option\n\n" << "\033[0m";
+	}
+	else if (option > index)
+	{
+		std::cout << "\033[31m" <<"\nInvalid Option(Contact Empty!)\n\n" << "\033[0m";
 	}
 	else if (option == 0)
 		std::cout << "\033[32m" << "\nGoing back!\n\n" << "\033[0m";

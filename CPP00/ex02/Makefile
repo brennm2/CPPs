@@ -1,9 +1,9 @@
 MAKEFLAGS += -s
 
-NAME = job
+NAME = account
 
-CC = c++ -g
-CCFLAGS =  -std=c++98
+CC = c++
+CCFLAGS = -std=c++98
 RM = rm
 RMFLAGS= -f
 GREEN=\033[0;32m

@@ -2,9 +2,7 @@ MAKEFLAGS += -s
 
 NAME = phonebook
 
-LIBFT = ./libs/libft.a
-
-CC = c++ -g
+CC = c++
 CCFLAGS = -Wall -Werror -Wextra -std=c++98
 RM = rm
 RMFLAGS= -f

@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 18:41:13 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/03 17:16:44 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/10/04 13:58:32 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ bool	fail_cin(void)
 	if (std::cin.fail() || std::cin.eof())
 	{
 		std::cout << "\033[31m" <<"\nInvalid Option\n\n" << "\033[0m";
-		// std::cin.clear();
-		// std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		return (false);
 	}
 	else
@@ -27,9 +25,7 @@ bool	fail_cin(void)
 }
 
 
-
-
-bool	option_Add(PhoneBook &Phone_book, int index)
+bool	option_Add(Phonebook &Phone_book, int index)
 {
 	std::string FirstName;
 	std::string LastName;
@@ -94,7 +90,7 @@ bool	option_Add(PhoneBook &Phone_book, int index)
 
 int main()
 {
-	PhoneBook Phone_Book;
+	Phonebook Phone_Book;
 	std::string option;
 	int	index = 0;
 
@@ -111,18 +107,19 @@ int main()
 		std::cout << "\n ADD | SEARCH | EXIT\n";
 		std::getline(std::cin, option);
 
-
 		if (option == "ADD")
 		{
-			if (index == 7)
+			if (index == 8)
+			{
 				option_Add(Phone_Book, 7);
+			}
 			else if (option_Add(Phone_Book, index) == true)
 				index++;
 		}
 		else if (option == "SEARCH")
 		{
 			if (Phone_Book.print_columns(index) == true)
-				Phone_Book.get_ContactInfo();
+				Phone_Book.get_ContactInfo(index);
 		}
 		else if (option == "EXIT" || std::cin.eof())
 		{
