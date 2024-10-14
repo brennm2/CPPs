@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 14:56:43 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/14 11:50:36 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/10/14 15:44:04 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int main()
 
 		Scott.attack();
 		std::cout << "Scott Killed the bug! Weapon Powered up!\n";
-		knife.setType("Eletric Knife");
+		knife.setType("Electric Knife");
 		Scott.attack();
 	}
 }
