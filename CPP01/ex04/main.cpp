@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 13:33:13 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/11 16:01:42 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/10/14 13:46:54 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ std::string	get_content(std::ifstream *inFile)
 {
 	std::stringstream buffer;
 
-	buffer << inFile->rdbuf(); // le o que esta no infile
-	return buffer.str(); // transforma buffer em string
+	buffer << inFile->rdbuf();
+	return buffer.str();
 }
 
 
@@ -54,7 +54,7 @@ bool	place_string_outFile(std::string fileContent, std::string fileName)
 		std::cout << "Fail to open outFile\n";
 		return (false);
 	}
-	
+
 	outFile << fileContent;
 	outFile.close();
 	std::cout << "\033[34m" << fileName_replace << "\033[0m" << " created!\n";
@@ -95,6 +95,11 @@ int main(void)
 		return (1);
 	}
 	fileContent = get_content(&inFile);
+	if (fileContent == "")
+	{
+		std::cout << "Empty file!\n";
+		return (1) ;
+	}
 	fileContent = replace_words(fileContent, str1, str2);
 	if (fileContent.empty())
 		return (1);

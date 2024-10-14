@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 14:37:55 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/10 17:33:48 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/10/14 12:00:28 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 class HumanA
 {
 private:
-	Weapon	*_Weapon;
+	Weapon	&_weapon;
 	std::string	_name;
 
 

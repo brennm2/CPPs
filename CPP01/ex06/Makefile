@@ -1,6 +1,6 @@
 MAKEFLAGS += -s
 
-NAME = harl
+NAME = harlFilter
 
 CC = c++ -g
 CCFLAGS = -Wall -Werror -Wextra -std=c++98

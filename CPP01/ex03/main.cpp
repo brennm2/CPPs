@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 14:56:43 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/10 17:37:00 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/10/14 11:50:36 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ int main()
 		axe.setType("Fire Axe");
 		Bob.attack();
 	}
-
-		std::cout << "\n\n";
-
+		std::cout << "\n";
 	{
 		Weapon knife("Knife");
 		HumanB Scott("Scott");
@@ -40,21 +38,4 @@ int main()
 		knife.setType("Eletric Knife");
 		Scott.attack();
 	}
-
-	// {
-	// 	Weapon club = Weapon("crude spiked club");
-	// 	HumanA bob("Bob", club);
-	// 	bob.attack();
-	// 	club.setType("some other type of club");
-	// 	bob.attack();
-	// }
-	// {
-	// 	Weapon club = Weapon("crude spiked club");
-	// 	HumanB jim("Jim");
-	// 	jim.setWeapon(club);
-	// 	jim.attack();
-	// 	club.setType("some other type of club");
-	// 	jim.attack();
-	// }
-	// return 0;
 }

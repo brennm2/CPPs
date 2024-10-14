@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/10 14:27:57 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/14 13:37:31 by bde-souz         ###   ########.fr       */
+/*   Created: 2024/10/11 16:06:09 by bde-souz          #+#    #+#             */
+/*   Updated: 2024/10/11 16:09:26 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-#define WEAPON_HPP
+#ifndef HARL_HPP
+#define HARL_HPP
 
 #include <iostream>
 #include <string>
@@ -25,18 +25,22 @@
 #define cyan "\033[36m"
 #define reset "\033[0m"
 
-class Weapon
+
+class Harl
 {
 private:
-	std::string	_type;
-	
+	void	debug(void);
+	void	info(void);
+	void	warning(void);
+	void	error(void);
 public:
-	const	std::string& getType(void) const;
-	void	setType(std::string newType);
-
-	Weapon(std::string type);
-	~Weapon();
-
+	void	complain( std::string level );
+	
+	Harl();
+	~Harl();
 };
+
+
+
 
 #endif
