@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 16:12:41 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/15 13:18:12 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/10/15 16:53:18 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <string>
+#include <cmath>
 
 // COLORS //
 #include <iostream>
@@ -36,10 +37,46 @@ class Fixed
 	public:
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );
+		float toFloat( void ) const;
+		int toInt( void ) const;
+
+		
 		Fixed();
+		Fixed(const int Number);
+		Fixed(const float Number);
 		~Fixed();
 		Fixed(const Fixed &copy);
 		Fixed &operator=(const Fixed &copy);
+
+		//New Ones
+		//Comparision Operators
+		bool operator<(const Fixed &copy);
+		bool operator>(const Fixed &copy);
+		bool operator>=(const Fixed &copy);
+		bool operator<=(const Fixed &copy);
+		bool operator==(const Fixed &copy);
+		bool operator!=(const Fixed &copy);
+
+		//Arithmetic Operators
+		Fixed operator+(const Fixed &copy);
+		Fixed operator-(const Fixed &copy);
+		Fixed operator*(const Fixed &copy);
+		Fixed operator/(const Fixed &copy);
+
+		//Increment/Decrement Operators
+		Fixed& operator++();
+		Fixed& operator--();
+		Fixed operator++(int);
+		Fixed operator--(int);
+
+		//Public Overloaded
+		static Fixed& min(Fixed &a, Fixed &b);
+		static const Fixed& min(const Fixed &a, const Fixed &b);
+		static Fixed& max(Fixed &a, Fixed &b);
+		static const Fixed& max(const Fixed &a, const Fixed &b);
+		
 } ;
+
+std::ostream &operator<<(std::ostream &out, const Fixed &fixed);
 
 #endif

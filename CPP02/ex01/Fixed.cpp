@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 11:31:04 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/15 13:21:09 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/10/15 14:15:06 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 int Fixed::getRawBits( void ) const
 {
-	std::cout << "getRawBits member function called\n";
 	return(_integer);
 }
 
@@ -25,15 +24,38 @@ void Fixed::setRawBits( int const raw )
 }
 
 
+float Fixed::toFloat( void ) const
+{
+	return static_cast<float> (_integer) / (1 << _static_integer);
+}
+
+int Fixed::toInt( void ) const
+{
+	return _integer >> _static_integer;
+}
+
+
 Fixed::Fixed() : _integer(0)
 {
 	std::cout << magenta << "Default Constructor Called\n" << reset;
 }
 
+Fixed::Fixed(const int Number)
+{
+	std::cout << magenta << "Int Constant Constructor Called\n" << reset;
+	_integer = Number << _static_integer;
+}
+
+Fixed::Fixed(const float Number)
+{
+	std::cout << magenta << "Float Constructor Called\n" << reset;
+	_integer = static_cast<int>(roundf(Number * (1 << _static_integer)));
+}
+
 Fixed::Fixed(const Fixed &copy)
 {
 	std::cout << cyan << "Copy Constructor Called\n" << reset;
-	_integer = copy.getRawBits();
+	*this = copy;
 }
 
 Fixed &Fixed::operator=(const Fixed &copy)
@@ -44,6 +66,11 @@ Fixed &Fixed::operator=(const Fixed &copy)
 		_integer = copy.getRawBits();
 	}
 	return (*this);
+}
+
+std::ostream &operator<<(std::ostream &out, const Fixed &fixed) {
+	out << fixed.toFloat();
+	return out;
 }
 
 Fixed::~Fixed()
