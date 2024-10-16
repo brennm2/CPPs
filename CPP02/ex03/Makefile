@@ -12,7 +12,9 @@ YELLOW=\033[1;93m
 NC=\033[0m
 
 SRC = main.cpp \
-	Fixed.cpp 
+	Fixed.cpp \
+	Point.cpp \
+	Bsp.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
