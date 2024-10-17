@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 11:18:28 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/16 14:01:17 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/10/17 11:26:23 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 class Point
 {
 private:
-	Fixed _x;
-	Fixed _y;
+	Fixed const _x;
+	Fixed const _y;
 
 public:
 	Fixed getX(void) const;

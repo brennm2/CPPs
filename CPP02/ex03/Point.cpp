@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 11:20:53 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/16 14:09:46 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/10/17 11:37:12 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,9 @@ Point::Point(const Point &copy) :_x(copy._x), _y(copy._y)
 
 Point &Point::operator=(const Point &copy)
 {
+	(void)copy;
 	//std::cout << cyan << "Copy Assignment Operator Called\n" << reset;
-	
-	if (this != &copy)
-	{
-		_x = copy._x;
-		_y = copy._y;
-	}
-	return (*this);
+	return *this;
 }
 
 Point::~Point()
