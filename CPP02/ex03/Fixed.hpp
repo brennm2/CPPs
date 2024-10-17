@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 16:12:41 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/16 16:26:37 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/10/17 11:22:17 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <string>
+#include <cmath>
 
 // COLORS //
 #include <iostream>

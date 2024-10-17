@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 13:24:07 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/15 18:24:00 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/10/17 11:20:25 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,12 @@ int main( void )
 		std::cout << "Yes!\n";
 	else
 		std::cout << "No :c\n";
+
+
+	std::cout << "A before: " << a << "\n";
+	a--;
+	std::cout << "A after: " << a << "\n";
+	
 	
 
 	return 0;
