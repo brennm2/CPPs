@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 12:06:18 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/22 16:46:53 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/10/22 18:57:31 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,11 @@ void ScavTrap::attack(const std::string& target)
 
 void ScavTrap::guardGate(void)
 {
+	if (this->_Hp <= 0)
+	{
+		std::cout << "The " << yellow << this->_Name << reset << " is dead, it cannot be in Guard Gate mode!\n";
+		return ;
+	}
 	if (_guardState == false)
 	{
 		this->_guardState = true;
