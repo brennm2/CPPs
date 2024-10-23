@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:09:24 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/23 14:37:50 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/10/23 14:52:56 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	FragTrap::highFivesGuys(void)
 {
 	if (this->_Hp <= 0)
-		std::cout << yellow "Minion, I'm dead. I cannot do a high five right now..." << reset <<"\n";
+		std::cout << yellow "Minion, I'm dead! I cannot do a high five right now..." << reset <<"\n";
 	else
 		std::cout << yellow << "Hello minion, give me a high five!" << reset <<  "\n";
 }

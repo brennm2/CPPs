@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 12:05:25 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/23 14:53:36 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/10/23 14:50:08 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 		this->_Energy -= 1;
 	}
 }
+
 
 ClapTrap::ClapTrap()
 	: _Name("default"), _Hp(10), _Energy(10), _Damage(0)

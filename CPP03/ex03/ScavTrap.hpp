@@ -1,41 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 19:09:17 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/23 14:12:21 by bde-souz         ###   ########.fr       */
+/*   Created: 2024/10/22 12:06:14 by bde-souz          #+#    #+#             */
+/*   Updated: 2024/10/23 14:14:55 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
 
 #include "ClapTrap.hpp"
 
-// COLORS //
-#define blue "\033[34m"
-#define red "\033[31m"
-#define green "\033[32m"
-#define yellow "\033[33m"
-#define magenta "\033[35m"
-#define cyan "\033[36m"
-#define reset "\033[0m"
-
-class FragTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
 protected:
-	
+	bool	_guardState;
 public:
-	void highFivesGuys(void);
+	void guardGate(void);
+	void attack(const std::string& target);
 
-	FragTrap();
-	FragTrap(std::string NewName);
-	~FragTrap();
-	FragTrap(const FragTrap &copy);
-	FragTrap &operator=(const FragTrap &copy);
+	ScavTrap();
+	ScavTrap(std::string NewName);
+	~ScavTrap();
+	ScavTrap(const ScavTrap &copy);
+	ScavTrap &operator=(const ScavTrap &copy);
 } ;
 
 #endif

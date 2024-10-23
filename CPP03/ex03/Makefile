@@ -1,9 +1,9 @@
 MAKEFLAGS += -s
 
-NAME = FragTrap
+NAME = DiamondTrap
 
 CC = c++ -g
-CCFLAGS = -Wall -Werror -Wextra -std=c++98
+CCFLAGS = -Wshadow -Wall -Werror -Wextra -std=c++98
 RM = rm
 RMFLAGS= -f
 GREEN=\033[0;32m
@@ -13,7 +13,9 @@ NC=\033[0m
 
 SRC = main.cpp \
 	ClapTrap.cpp \
-	FragTrap.cpp
+	FragTrap.cpp \
+	ScavTrap.cpp \
+	DiamondTrap.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

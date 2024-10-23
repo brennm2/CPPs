@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 12:02:16 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/22 15:52:48 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/10/23 14:11:38 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ class ClapTrap
 		unsigned int getHp(void);
 		std::string getName(void);
 		
+		ClapTrap();
 		ClapTrap(std::string Name);
 		~ClapTrap();
 		ClapTrap(const ClapTrap &copy);
