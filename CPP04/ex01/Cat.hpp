@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 16:57:34 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/24 11:54:02 by bde-souz         ###   ########.fr       */
+/*   Created: 2024/10/24 12:07:20 by bde-souz          #+#    #+#             */
+/*   Updated: 2024/10/24 12:13:55 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef CAT_HPP
+#define CAT_HPP
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
 
+#include "Animal.hpp"
 #include <iostream>
 #include <string>
 
@@ -26,19 +27,18 @@
 #define cyan "\033[36m"
 #define reset "\033[0m"
 
-class Animal
-{
-protected:
-	std::string _type;
-public:
-	virtual	void	makeSound(void) const;
-	std::string getType(void) const;
-	
-	Animal();
-	virtual ~Animal();
-	Animal(const Animal &copy);
-	Animal &operator=(const Animal &copy);
-} ;
 
+class Cat : public Animal
+{
+private:
+	
+public:
+	void	makeSound(void) const;
+
+	Cat();
+	~Cat();
+	Cat(const Cat &copy);
+	Cat &operator=(const Cat &copy);
+} ;
 
 #endif

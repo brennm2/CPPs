@@ -6,12 +6,15 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:09:24 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/23 14:52:56 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/10/24 14:20:06 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "FragTrap.hpp"
+
+unsigned int const FragTrap::_frag_hp = 100;
+unsigned int const FragTrap::_frag_damage = 30;
 
 void	FragTrap::highFivesGuys(void)
 {
@@ -21,10 +24,9 @@ void	FragTrap::highFivesGuys(void)
 		std::cout << yellow << "Hello minion, give me a high five!" << reset <<  "\n";
 }
 
-FragTrap::FragTrap()
+FragTrap::FragTrap() : ClapTrap()
 {
 	std::cout << magenta << "FragTrap Default Constructor Called\n" << reset;
-	this->_Name = "default";
 	this->_Hp = 100;
 	this->_Energy = 100;
 	this->_Damage = 30;

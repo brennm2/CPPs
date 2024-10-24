@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:09:17 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/23 14:14:11 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/10/24 14:08:41 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #define FRAGTRAP_HPP
 
 #include "ClapTrap.hpp"
+
+
 
 // COLORS //
 #define blue "\033[34m"
@@ -27,6 +29,8 @@
 class FragTrap : virtual public ClapTrap
 {
 protected:
+	static unsigned int const _frag_hp;
+	static unsigned int const _frag_damage;
 	
 public:
 	void highFivesGuys(void);

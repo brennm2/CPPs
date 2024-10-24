@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 17:15:53 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/24 12:12:55 by bde-souz         ###   ########.fr       */
+/*   Created: 2024/10/24 12:08:49 by bde-souz          #+#    #+#             */
+/*   Updated: 2024/10/24 12:14:13 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "Cat.hpp"
 
-void	Dog::makeSound(void) const
+void	Cat::makeSound(void) const
 {
-	std::cout << blue << "*Bark Bark!*" << "\n" << reset;
+	std::cout << green << "*Meow Meow!*" << "\n" << reset;
 }
 
-Dog::Dog() : Animal()
+Cat::Cat()
 {
-	std::cout << magenta << "Dog Default Constructor Called\n" << reset;
-	this->_type = "Dog";
+	std::cout << magenta << "Cat Default Constructor Called\n" << reset;
+	this->_type = "Cat";
 }
 
-Dog::~Dog()
+Cat::~Cat()
 {
-	std::cout << red << "Dog Destructor Called\n" << reset;
+	std::cout << red << "Cat Destructor Called\n" << reset;
 }
 
-Dog::Dog(const Dog &copy)
+Cat::Cat(const Cat &copy)
 {
-	std::cout << cyan << "Dog Copy Constructor Called\n" << reset;
+	std::cout << cyan << "Cat Copy Constructor Called\n" << reset;
 	this->_type = copy._type;
 }
 
-Dog &Dog::operator=(const Dog &copy)
+Cat &Cat::operator=(const Cat &copy)
 {
-	std::cout << cyan << "Dog Copy Assignment Operator Called\n" << reset;
+	std::cout << cyan << "Cat Copy Assignment Operator Called\n" << reset;
 	if (this != &copy)
 	{
 		this->_type = copy._type;

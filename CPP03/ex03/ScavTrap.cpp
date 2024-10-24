@@ -6,11 +6,13 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 12:06:18 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/23 14:57:42 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/10/24 14:20:08 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+
+unsigned int const ScavTrap::_scav_energy = 50;
 
 void ScavTrap::attack(const std::string& target)
 {
@@ -53,10 +55,9 @@ void ScavTrap::guardGate(void)
 }
 
 
-ScavTrap::ScavTrap()
+ScavTrap::ScavTrap() : ClapTrap()
 {
 	std::cout << magenta << "ScavTrap Default Constructor Called\n" << reset;
-	this->_Name = "default";
 	this->_Hp = 100;
 	this->_Energy = 50;
 	this->_Damage = 20;

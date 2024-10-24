@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 12:07:30 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/23 14:51:23 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/10/24 14:19:15 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,10 @@ DiamondTrap::DiamondTrap()
 	: ClapTrap(), ScavTrap(), FragTrap()
 {
 	std::cout << magenta << "DiamondTrap Default Constructor Called\n" << reset;
-	this->_Name = "default";
 	this->ClapTrap::_Name = this->_Name + "_clap_name";
-	this->_Hp = FragTrap::_Hp;
-	this->_Energy = ScavTrap::_Energy;
-	this->_Damage = FragTrap::_Damage;
+	this->_Hp = _frag_hp;
+	this->_Energy = _scav_energy;
+	this->_Damage = _frag_damage;
 }
 
 DiamondTrap::DiamondTrap(std::string NewName)
@@ -38,9 +37,9 @@ DiamondTrap::DiamondTrap(std::string NewName)
 {
 	std::cout << magenta << "DiamondTrap Default String Constructor Called\n" << reset;
 	this->_Name = NewName;
-	this->_Hp = FragTrap::_Hp;
-	this->_Energy = ScavTrap::_Energy;
-	this->_Damage = FragTrap::_Damage;
+	this->_Hp = _frag_hp;
+	this->_Energy = _scav_energy;
+	this->_Damage = _frag_damage;
 }
 
 DiamondTrap::~DiamondTrap()

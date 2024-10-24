@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 12:27:54 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/23 12:00:41 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/10/24 13:13:40 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int main(void)
 	// 	Scav1.attack("Me");
 	// }
 
-	std::cout << cyan << "\n---- ScavTrap ----\n" << reset;
+	std::cout << cyan << "\n---- FragTrap ----\n" << reset;
 	{
 		FragTrap Frag1("Frag");
 

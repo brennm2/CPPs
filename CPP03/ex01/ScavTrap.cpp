@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 12:06:18 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/23 15:11:20 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/10/24 13:31:34 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,9 @@ void ScavTrap::guardGate(void)
 }
 
 
-ScavTrap::ScavTrap()
+ScavTrap::ScavTrap() : ClapTrap()
 {
 	std::cout << magenta << "ScavTrap Default Constructor Called\n" << reset;
-	this->_Name = "default";
 	this->_Hp = 100;
 	this->_Energy = 50;
 	this->_Damage = 20;
