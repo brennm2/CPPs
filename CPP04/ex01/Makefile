@@ -1,9 +1,9 @@
 MAKEFLAGS += -s
 
-NAME = Polymorphism
+NAME = WorldOnFire
 
 CC = c++ -g
-CCFLAGS = -Wshadow -Wall -Werror -Wextra -std=c++98
+CCFLAGS = -Wall -Werror -Wextra -std=c++98
 RM = rm
 RMFLAGS= -f
 GREEN=\033[0;32m
@@ -17,6 +17,7 @@ SRC = main.cpp \
 	Cat.cpp \
 	WrongCat.cpp \
 	WrongAnimal.cpp \
+	Brain.cpp 
 
 OBJ = $(SRC:.cpp=.o)
 

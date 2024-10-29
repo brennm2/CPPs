@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 12:08:49 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/24 12:14:13 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/10/29 17:13:28 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Cat::~Cat()
 	std::cout << red << "Cat Destructor Called\n" << reset;
 }
 
-Cat::Cat(const Cat &copy)
+Cat::Cat(const Cat &copy) : Animal()
 {
 	std::cout << cyan << "Cat Copy Constructor Called\n" << reset;
 	this->_type = copy._type;

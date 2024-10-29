@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 12:23:10 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/24 12:25:21 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/10/29 13:26:18 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ WrongCat::WrongCat()
 	this->_type = "Wrong Cat";
 }
 
-WrongCat::~WrongCat()
+WrongCat::~WrongCat() 
 {
 	std::cout << red << "WrongCat Destructor Called\n" << reset;
 }
 
-WrongCat::WrongCat(const WrongCat &copy)
+WrongCat::WrongCat(const WrongCat &copy) : WrongAnimal(copy)
 {
 	std::cout << cyan << "WrongCat Copy Constructor Called\n" << reset;
 	this->_type = copy._type;

@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 16:57:34 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/24 11:54:02 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/10/29 17:47:36 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ public:
 	std::string getType(void) const;
 	
 	Animal();
-	virtual ~Animal();
+	virutal ~Animal();
 	Animal(const Animal &copy);
 	Animal &operator=(const Animal &copy);
 } ;

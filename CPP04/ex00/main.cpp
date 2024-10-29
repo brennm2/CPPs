@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 18:54:00 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/24 15:54:44 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/10/29 17:22:19 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,17 @@ int main(void)
 	std::cout << green << "--- Wrong Animal ---" << reset << "\n";
 	const WrongAnimal* wrong = new WrongAnimal();
 	const WrongAnimal* wrongCat = new WrongCat();
+	const WrongCat *wronger = new WrongCat();
 	std::cout << wrongCat->getType() << "\n";
 	wrongCat->makeSound();
 	wrong->makeSound();
+	wronger->makeSound();
 
 	delete meta;
 	delete j;
 	delete i;
 	delete wrong;
 	delete wrongCat;
+	delete wronger;
+
 }

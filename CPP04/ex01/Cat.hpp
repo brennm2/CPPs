@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 12:07:20 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/24 12:13:55 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/10/29 17:46:12 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 #include <iostream>
 #include <string>
 
@@ -31,8 +32,10 @@
 class Cat : public Animal
 {
 private:
-	
+	Brain *_brain;
 public:
+	void	think(unsigned int number);
+	void	setIdeias(unsigned int index, std::string idea);
 	void	makeSound(void) const;
 
 	Cat();

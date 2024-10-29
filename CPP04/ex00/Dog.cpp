@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 17:15:53 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/24 12:12:55 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/10/29 17:13:25 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Dog::~Dog()
 	std::cout << red << "Dog Destructor Called\n" << reset;
 }
 
-Dog::Dog(const Dog &copy)
+Dog::Dog(const Dog &copy) : Animal()
 {
 	std::cout << cyan << "Dog Copy Constructor Called\n" << reset;
 	this->_type = copy._type;

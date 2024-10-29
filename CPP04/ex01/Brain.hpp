@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 15:59:34 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/24 16:01:20 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/10/29 17:34:13 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,15 @@
 #define reset "\033[0m"
 
 
-class Brain 
+class Brain
 {
 protected:
-	std::string *_ideas[100];
+	std::string _ideas[100];
 public:
+	void	createIdeas(void);
+	void	speakIdeas(std::string type, unsigned int number);
+	void	placeIdeias(unsigned int index, std::string idea);
+
 	Brain();
 	~Brain();
 	Brain(const Brain &copy);
