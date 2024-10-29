@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 16:57:34 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/29 19:33:11 by bde-souz         ###   ########.fr       */
+/*   Created: 2024/10/24 15:59:34 by bde-souz          #+#    #+#             */
+/*   Updated: 2024/10/29 17:34:13 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
 #include <iostream>
 #include <string>
@@ -26,19 +25,20 @@
 #define cyan "\033[36m"
 #define reset "\033[0m"
 
-class Animal
+
+class Brain
 {
 protected:
-	std::string _type;
+	std::string _ideas[100];
 public:
-	virtual	void	makeSound(void) const;
-	std::string getType(void) const;
-	
-	Animal();
-	virtual ~Animal();
-	Animal(const Animal &copy);
-	Animal &operator=(const Animal &copy);
-} ;
+	void	createIdeas(void);
+	void	speakIdeas(std::string type, unsigned int number);
+	void	placeIdeias(unsigned int index, std::string idea);
 
+	Brain();
+	~Brain();
+	Brain(const Brain &copy);
+	Brain &operator=(const Brain &copy);
+} ;
 
 #endif

@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 16:57:34 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/29 19:33:11 by bde-souz         ###   ########.fr       */
+/*   Created: 2024/10/24 12:17:11 by bde-souz          #+#    #+#             */
+/*   Updated: 2024/10/24 15:55:54 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef WRONGANIMAL_HPP
+#define WRONGANIMAL_HPP
 
 #include <iostream>
 #include <string>
@@ -26,19 +25,19 @@
 #define cyan "\033[36m"
 #define reset "\033[0m"
 
-class Animal
+
+class WrongAnimal 
 {
 protected:
 	std::string _type;
 public:
-	virtual	void	makeSound(void) const;
-	std::string getType(void) const;
+	void	makeSound(void) const;
+	std::string		getType(void) const;
 	
-	Animal();
-	virtual ~Animal();
-	Animal(const Animal &copy);
-	Animal &operator=(const Animal &copy);
+	WrongAnimal();
+	virtual ~WrongAnimal();
+	WrongAnimal(const WrongAnimal &copy);
+	WrongAnimal &operator=(const WrongAnimal &copy);
 } ;
-
 
 #endif

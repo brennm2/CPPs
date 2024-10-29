@@ -1,44 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 16:57:34 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/29 19:33:11 by bde-souz         ###   ########.fr       */
+/*   Created: 2024/10/23 17:14:30 by bde-souz          #+#    #+#             */
+/*   Updated: 2024/10/29 19:38:24 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef DOG_HPP
+#define DOG_HPP
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
-
+#include "Brain.hpp"
+#include "Animal.hpp"
 #include <iostream>
 #include <string>
 
-// COLORS //
-#define blue "\033[34m"
-#define red "\033[31m"
-#define green "\033[32m"
-#define yellow "\033[33m"
-#define magenta "\033[35m"
-#define cyan "\033[36m"
-#define reset "\033[0m"
 
-class Animal
+class Dog : public Animal
 {
-protected:
-	std::string _type;
+private:
+	Brain *_brain;
 public:
-	virtual	void	makeSound(void) const;
-	std::string getType(void) const;
-	
-	Animal();
-	virtual ~Animal();
-	Animal(const Animal &copy);
-	Animal &operator=(const Animal &copy);
-} ;
+	void	makeSound(void) const;
+	void	think(unsigned int number);
+	void	setIdeias(unsigned int index, std::string idea);
 
+	Dog();
+	~Dog();
+	Dog(const Dog &copy);
+	Dog &operator=(const Dog &copy);
+} ;
 
 #endif

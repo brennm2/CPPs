@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 16:57:34 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/29 19:33:11 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/10/29 19:43:19 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class Animal
 protected:
 	std::string _type;
 public:
-	virtual	void	makeSound(void) const;
+	virtual	void	makeSound(void) const = 0;
 	std::string getType(void) const;
 	
 	Animal();
