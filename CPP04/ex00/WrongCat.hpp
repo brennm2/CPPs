@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 12:22:16 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/24 12:28:49 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/11/01 13:49:55 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ class WrongCat : public WrongAnimal
 private:
 	
 public:
-	std::string getType(void) const;
 	void	makeSound(void) const;
 
 	WrongCat();

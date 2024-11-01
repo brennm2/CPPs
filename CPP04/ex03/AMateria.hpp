@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 10:18:42 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/31 15:27:42 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/11/01 14:24:53 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class AMateria
 protected:
 	std::string _type;
 public:
-	std::string const & getType() const; 
+	std::string const & getType() const;
  	virtual AMateria* clone() const = 0;
 	virtual void use(ICharacter& target);
 

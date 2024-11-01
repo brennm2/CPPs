@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 18:54:00 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/29 19:47:37 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/11/01 14:14:08 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 int main(void)
 {
-	//Animal test;
+	//Animal test; //<<-- The test
 	
 	{
 		int array_size = 10;

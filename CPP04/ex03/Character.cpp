@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 11:05:01 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/31 18:59:05 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/11/01 14:40:14 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ std::string const &Character::getName() const
 
 void Character::equip(AMateria* m)
 {
-	//std::cout << _indexPos << "\n";
 	if (!m)
 	{
 		std::cout << red << "\nMateria don't exist!\n\n" << reset;
@@ -27,12 +26,12 @@ void Character::equip(AMateria* m)
 	}
 	if (_indexPos < 4)
 	{
-		// this->_speelbook[_indexPos] = NULL;
 		this->_speelbook[_indexPos] = m->clone();
 		std::cout << cyan << " --- Spell " << red << m->getType() 
 		<< cyan " equiped! --- \n" << reset;
 		this->_indexPos++;
 		delete m ;
+		//this->_garbageIndexPos--
 	}
 	else
 		std::cout << red << "\nNo more pages in the Speel Book!\n\n" << reset;
@@ -56,6 +55,7 @@ void Character::unequip(int idx)
 		this->_speelbook[idx - 1] = NULL;
 		std::cout << "Unequiped the " << yellow
 		<< this->_garbageSpeel[_garbageIndexPos++]->getType() << " speel!\n" << reset;
+		this->_indexPos--;
 	}
 }
 

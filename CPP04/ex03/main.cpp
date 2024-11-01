@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 10:18:53 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/10/31 19:06:46 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/11/01 14:48:19 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 
 int main(void)
 {
-
 	{
 		std::cout << yellow << "\n|------------------|\n";
 		std::cout << "|----- TEST 1 -----|\n";
@@ -97,6 +96,15 @@ int main(void)
 		you->use(2, *bob);
 		you->use(3, *bob);
 		you->use(4, *bob);
+	
+		std::cout << "\n";
+		you->unequip(4); // Unequip spell 4
+		you->use(4, *bob); // Trying to use spell 4 (no spell)
+		you->equip(src->createMateria("ice")); // Creating one Ice spell and equipping it
+		you->use(4, *bob); // Trying to use spell 4 (with spell)
+		you->unequip(4); // Unequip spell 4
+		you->use(4, *bob); // Trying to use spell 4 (no spell)
+
 
 		std::cout << "\n";
 		delete src;
