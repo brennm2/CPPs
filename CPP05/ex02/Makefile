@@ -13,7 +13,7 @@ NC=\033[0m
 
 SRC = main.cpp \
 	Bureaucrat.cpp \
-	Form.cpp
+	AForm.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

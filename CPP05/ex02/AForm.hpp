@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 18:22:14 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/11/14 15:41:46 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/11/14 17:25:47 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
 #include <iostream>
 #include <string>
@@ -31,17 +31,19 @@
 
 class Bureaucrat;
 
-class Form 
+class AForm
 {
 private:
 	const std::string 	_name;
 	bool				_isSigned;
 	const int 			_gradeToSign;
 	const int			_gradeToExecute;
+	const std::string	_target;
 public:
 
 	void		beSigned(Bureaucrat &toSign);
 	std::string	getName(void) const;
+	std::string	getTarget(void) const;
 	bool		getIsSigned(void) const;
 	std::string	getIsSignedToString(void) const;
 	int			getGradeToSign(void) const;
@@ -49,11 +51,11 @@ public:
 
 
 
-	Form();
-	Form(std::string newName, int newGradeToSign, int newGradeToExecute);
-	~Form();
-	Form(const Form &copy);
-	Form &operator=(const Form &copy);
+	AForm();
+	AForm(std::string newName, int newGradeToSign, int newGradeToExecute, std::string newTarget);
+	~AForm();
+	AForm(const AForm &copy);
+	AForm &operator=(const AForm &copy);
 
 		class GradeTooHighException : public std::exception
 	{
@@ -71,6 +73,6 @@ public:
 	};
 } ;
 
-std::ostream &operator<<(std::ostream &out, const Form &form);
+std::ostream &operator<<(std::ostream &out, const AForm &form);
 
 #endif

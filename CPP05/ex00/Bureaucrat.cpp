@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:04:40 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/11/13 18:10:25 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/11/14 13:07:16 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 int	Bureaucrat::verify_grade(int newgrade)
 {
-
 	if (newgrade == 0)
 		throw Bureaucrat::GradeTooHighException();
 	else if (newgrade > 150)
@@ -30,16 +29,15 @@ void	Bureaucrat::decrementGrade()
 {
 	int tempGrade = getGrade();
 	tempGrade += 1;
-	try
-	{
-		this->_grade = verify_grade(tempGrade);
-		std::cout << green <<"Grade decremented!" << reset << "\n";
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << "Error while trying to decrement-> "<< red << e.what() << '\n' << reset;
-	}
-	
+
+	//Output text
+	std::cout << cyan << "Trying to decrement grade: " << green << getGrade() \
+	<< cyan << ", to: " << green << tempGrade << "\n" << reset;
+
+	this->_grade = verify_grade(tempGrade);
+
+	//Output text
+	std::cout << green <<"Grade decremented!" << reset << "\n";
 }
 
 
@@ -47,16 +45,15 @@ void	Bureaucrat::incrementGrade()
 {
 	int tempGrade = getGrade();
 	tempGrade -= 1;
-	try
-	{
-		this->_grade = verify_grade(tempGrade);
-		std::cout << green <<"Grade incremented!" << reset << "\n";
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << "Error while trying to increment-> "<< red <<e.what() << '\n' << reset;
-	}
+
+	//Output text
+	std::cout << cyan << "Trying to increment grade: " << green << getGrade() \
+	<< cyan << ", to: " << green << tempGrade << "\n" << reset;
+
+	this->_grade = verify_grade(tempGrade);
 	
+	//Output text
+	std::cout << green <<"Grade incremented!" << reset << "\n";
 }
 
 
@@ -73,18 +70,9 @@ int Bureaucrat::getGrade() const
 void	Bureaucrat::setGrade(int newGrade)
 {
 	int tempGrade = newGrade;
-	try
-	{
-		this->_grade = verify_grade(tempGrade);
-		std::cout << green << this->getName() << \
-		" grade set to: " << blue << this->_grade << "\n" << reset;
-		
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << "Error while trying to increment-> " << red << e.what() << '\n' << reset;
-	}
-	
+	this->_grade = verify_grade(tempGrade);
+	std::cout << green << this->getName() << \
+	" grade set to: " << blue << this->_grade << "\n" << reset;
 }
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat)
@@ -106,14 +94,7 @@ Bureaucrat::Bureaucrat(std::string newname, int newgrade)
 	: _name(newname)
 {
 	std::cout << magenta << "Bureaucrat Grade Constructor Called\n" << reset;
-	try
-	{
-		this->_grade = verify_grade(newgrade);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << red << e.what() << '\n' << reset;
-	}
+	this->_grade = verify_grade(newgrade);
 }
 
 Bureaucrat::~Bureaucrat()
