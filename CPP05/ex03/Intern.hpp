@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 16:55:54 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/11/19 11:58:01 by bde-souz         ###   ########.fr       */
+/*   Created: 2024/11/19 14:17:31 by bde-souz          #+#    #+#             */
+/*   Updated: 2024/11/19 17:44:55 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ShrubberyCreationForm_HPP
-#define ShrubberyCreationForm_HPP
+#ifndef Intern_HPP
+#define Intern_HPP
+
 
 #include <iostream>
 #include <string>
-#include <fstream>
 #include "AForm.hpp"
 
 
@@ -29,17 +29,20 @@
 #define reset "\033[0m"
 
 
-class ShrubberyCreationForm : public AForm
+class Intern
 {
 private:
+	
 public:
-	void	executor() const;
+	AForm *makeForm(std::string formName, std::string target);
+	AForm *makeShrubbery(std::string target);
+	AForm *makeRobotomy(std::string target);
+	AForm *makePresidential(std::string target);
 
-	ShrubberyCreationForm();
-	ShrubberyCreationForm(std::string newTarget);
-	~ShrubberyCreationForm();
-	ShrubberyCreationForm(const ShrubberyCreationForm &copy);
-	ShrubberyCreationForm &operator=(const ShrubberyCreationForm &copy);
+	Intern();
+	~Intern();
+	Intern(const Intern &copy);
+	Intern &operator=(const Intern &copy);
 } ;
 
 #endif

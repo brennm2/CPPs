@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 16:55:54 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/11/19 11:58:01 by bde-souz         ###   ########.fr       */
+/*   Created: 2024/11/19 13:14:11 by bde-souz          #+#    #+#             */
+/*   Updated: 2024/11/19 13:38:13 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ShrubberyCreationForm_HPP
-#define ShrubberyCreationForm_HPP
+#ifndef RobotomyRequestForm_HPP
+#define RobotomyRequestForm_HPP
 
+#include "AForm.hpp"
 #include <iostream>
 #include <string>
-#include <fstream>
-#include "AForm.hpp"
-
 
 // COLORS //
 #define blue "\033[34m"
@@ -29,17 +27,18 @@
 #define reset "\033[0m"
 
 
-class ShrubberyCreationForm : public AForm
+class RobotomyRequestForm : public AForm
 {
 private:
+	
 public:
 	void	executor() const;
 
-	ShrubberyCreationForm();
-	ShrubberyCreationForm(std::string newTarget);
-	~ShrubberyCreationForm();
-	ShrubberyCreationForm(const ShrubberyCreationForm &copy);
-	ShrubberyCreationForm &operator=(const ShrubberyCreationForm &copy);
+	RobotomyRequestForm();
+	RobotomyRequestForm(std::string newTarget);
+	~RobotomyRequestForm();
+	RobotomyRequestForm(const RobotomyRequestForm &copy);
+	RobotomyRequestForm &operator=(const RobotomyRequestForm &copy);
 } ;
 
 #endif

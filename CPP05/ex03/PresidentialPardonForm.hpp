@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 16:55:54 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/11/19 11:58:01 by bde-souz         ###   ########.fr       */
+/*   Created: 2024/11/19 13:46:36 by bde-souz          #+#    #+#             */
+/*   Updated: 2024/11/19 13:49:37 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ShrubberyCreationForm_HPP
-#define ShrubberyCreationForm_HPP
+#ifndef PresidentialPardonForm_HPP
+#define PresidentialPardonForm_HPP
 
 #include <iostream>
 #include <string>
-#include <fstream>
 #include "AForm.hpp"
-
 
 // COLORS //
 #define blue "\033[34m"
@@ -29,17 +27,18 @@
 #define reset "\033[0m"
 
 
-class ShrubberyCreationForm : public AForm
+class PresidentialPardonForm : public AForm
 {
 private:
+	
 public:
 	void	executor() const;
 
-	ShrubberyCreationForm();
-	ShrubberyCreationForm(std::string newTarget);
-	~ShrubberyCreationForm();
-	ShrubberyCreationForm(const ShrubberyCreationForm &copy);
-	ShrubberyCreationForm &operator=(const ShrubberyCreationForm &copy);
+	PresidentialPardonForm(std::string newTarget);
+	PresidentialPardonForm();
+	~PresidentialPardonForm();
+	PresidentialPardonForm(const PresidentialPardonForm &copy);
+	PresidentialPardonForm &operator=(const PresidentialPardonForm &copy);
 } ;
 
 #endif

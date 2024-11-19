@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:04:43 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/11/14 15:41:26 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/11/19 12:09:25 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <string>
 #include <stdexcept>
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
 // COLORS //
 #define blue "\033[34m"
@@ -28,17 +28,17 @@
 #define cyan "\033[36m"
 #define reset "\033[0m"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
 private:
-
 	const std::string _name;
 	int				_grade;
 public:
 
-	void					signForm(Form &toSign);
+	void					signForm(AForm &toSign);
+	void					executeForm(AForm &toExecute);
 	int						verify_grade(int newgrade);
 	const std::string		getName() const;
 	int						getGrade() const;

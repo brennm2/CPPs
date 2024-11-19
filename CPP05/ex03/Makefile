@@ -1,6 +1,6 @@
 MAKEFLAGS += -s
 
-NAME = AForm
+NAME = Intern
 
 CC = c++ -g
 CCFLAGS = -Wall -Werror -Wextra -std=c++98
@@ -16,7 +16,8 @@ SRC = main.cpp \
 	AForm.cpp \
 	ShrubberyCreationForm.cpp \
 	RobotomyRequestForm.cpp \
-	PresidentialPardonForm.cpp 
+	PresidentialPardonForm.cpp \
+	Intern.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
