@@ -6,13 +6,13 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 18:26:17 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/11/19 14:09:36 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/11/19 23:36:06 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
-void	AForm::execute(Bureaucrat &bureaucrat)
+void	AForm::execute(Bureaucrat const &bureaucrat) const
 {
 	if (bureaucrat.getGrade() > this->getGradeToExecute())
 		throw(GradeTooLowException());

@@ -6,14 +6,13 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:04:40 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/11/19 18:18:22 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/11/19 23:49:37 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-
-void	Bureaucrat::executeForm(AForm &toExecute)
+void	Bureaucrat::executeForm(AForm const &toExecute)
 {
 	if (toExecute.getIsSigned() == true)
 	{

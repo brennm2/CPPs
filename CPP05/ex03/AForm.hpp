@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 18:22:14 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/11/19 17:49:42 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/11/19 23:36:20 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ public:
 	std::string		getIsSignedToString(void) const;
 	int				getGradeToSign(void) const;
 	int				getGradeToExecute(void) const;
-	void			execute(Bureaucrat &bureaucrat);
+	void			execute(Bureaucrat const &bureaucrat) const;
 	virtual void	executor() const = 0;
 
 

@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:04:43 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/11/19 16:42:40 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/11/19 23:49:28 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ private:
 public:
 
 	void					signForm(AForm &toSign);
-	void					executeForm(AForm &toExecute);
+	void					executeForm(AForm const &toExecute);
 	int						verify_grade(int newgrade);
 	const std::string		getName() const;
 	int						getGrade() const;
