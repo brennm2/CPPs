@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:04:40 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/11/14 16:35:26 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/11/20 11:35:03 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	Bureaucrat::signForm(Form &toSign)
 	try
 	{
 		toSign.beSigned(*this);
-
 	}
 	catch(Form::GradeTooLowException &e)
 	{

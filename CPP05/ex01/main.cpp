@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:34:14 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/11/14 16:46:57 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/11/20 11:57:49 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int main(void)
 		std::cout << yellow << "\n⫘⫘⫘⫘⫘⫘  " << "Creating Form" << "  ⫘⫘⫘⫘⫘⫘" << "\n" << reset;
 		try
 		{
-			Form Form1("Ammo", 150, 5);
+			Form Form1("Ammo", 1, 5);
 			std::cout << Form1;
 		}
 		catch(const std::exception& e)
@@ -98,7 +98,7 @@ int main(void)
 		std::cout << yellow << "\n⫘⫘⫘⫘⫘⫘  " << "Signing Form" << "  ⫘⫘⫘⫘⫘⫘" << "\n" << reset;
 		try
 		{
-			Form Form1("CPU Pass", 4, 6);
+			Form Form1("CPU Pass", 6, 6);
 			Bureaucrat Brendon("Brendon", 5);
 
 			Form1.beSigned(Brendon);
@@ -114,7 +114,7 @@ int main(void)
 		std::cout << yellow << "\n⫘⫘⫘⫘⫘⫘  " << "Signing Form with Bureaucrat" << "  ⫘⫘⫘⫘⫘⫘" << "\n" << reset;
 		try
 		{
-			Bureaucrat Brendon("Brendon", 1);
+			Bureaucrat Brendon("Brendon", 4);
 			Form Form1("Clean Form", 4, 1);
 			Brendon.signForm(Form1);
 		}

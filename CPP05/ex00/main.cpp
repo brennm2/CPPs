@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:34:14 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/11/14 13:13:19 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/11/20 11:20:40 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int main(void)
 	}
 	
 
-	Bureaucrat Brendon("Brendon",1);
 	std::cout << yellow << "\n⫘⫘⫘⫘⫘⫘  " << "Overload testing" << "  ⫘⫘⫘⫘⫘⫘" << "\n" << reset;
+	Bureaucrat Brendon("Brendon",1);
 	std::cout << Brendon;
 }
