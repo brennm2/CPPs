@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 13:54:00 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/11/21 18:54:24 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/11/25 17:20:06 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <string>
 #include <sstream>
 #include <cstdlib>
+#include <iomanip>
 
 
 // COLORS //
@@ -29,12 +30,15 @@
 #define reset "\033[0m"
 
 
-class ScalarConverter 
+class ScalarConverter
 {
 private:
 	int		checkTheType(std::string type);
-	void		intConverter(std::string c);
+	void	intConverter(std::string c);
 	void	charConverter(std::string c);
+	void	floatConverter(std::string c);
+	void	doubleConverter(std::string c);
+	void	nanOrInfConverter(std::string c);
 
 	ScalarConverter();
 	~ScalarConverter();
