@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 13:54:03 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/11/25 17:26:37 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:18:06 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ void ScalarConverter::charConverter(std::string c)
 	ScalarConverter sc;
 
 	//string to char
-	char tempChar = c[0];
+	char tempChar = static_cast<char>(c[0]);
 	
 	std::cout << "char: '" << tempChar << "'\n";
 
@@ -130,9 +130,7 @@ void ScalarConverter::charConverter(std::string c)
 
 void	ScalarConverter::intConverter(std::string c)
 {
-	std::stringstream ss(c);
-	long int tempStringToInt;
-	ss >> tempStringToInt;
+	long int tempStringToInt = std::strtol(c.c_str(), NULL, 10);
 	
 	//string(int) to char
 	if (tempStringToInt < 32)
@@ -162,9 +160,7 @@ void	ScalarConverter::intConverter(std::string c)
 
 void	ScalarConverter::floatConverter(std::string c)
 {
-	std::stringstream ss(c);
-	long int tempStringToInt;
-	ss >> tempStringToInt;
+	long int tempStringToInt = std::strtol(c.c_str(), NULL, 10);
 
 	//string(float) to char --------
 	if (tempStringToInt < 32)
@@ -194,9 +190,7 @@ void	ScalarConverter::floatConverter(std::string c)
 
 void	ScalarConverter::doubleConverter(std::string c)
 {
-	std::stringstream ss(c);
-	long int tempStringToInt;
-	ss >> tempStringToInt;
+	long int tempStringToInt = std::strtol(c.c_str(), NULL, 10);
 
 	//string(double) to char --------
 	if (tempStringToInt < 32)
@@ -269,7 +263,6 @@ void	ScalarConverter::converter(std::string c)
 	int type = sc.checkTheType(c);
 
 	// 0 = char / 1 = int / 2 = float / 3 = double
-	std::cout << "Type: " << type << "\n\n";
 	switch (type)
 	{
 		case 0:
@@ -288,7 +281,7 @@ void	ScalarConverter::converter(std::string c)
 			sc.nanOrInfConverter(c);
 			break ;
 		case 5:
-			std::cout << "WRONG!" << "\n";
+			std::cout << red << "Bad Input!" << "\n" << reset;
 			break;
 	}
 }
@@ -306,13 +299,13 @@ ScalarConverter::~ScalarConverter()
 
 ScalarConverter::ScalarConverter(const ScalarConverter &copy)
 {
-	std::cout << cyan << "ScalarConverter Copy Constructor Called\n" << reset;
+	// std::cout << cyan << "ScalarConverter Copy Constructor Called\n" << reset;
 	(void)copy;
 }
 
 ScalarConverter &ScalarConverter::operator=(const ScalarConverter &copy)
 {
-	std::cout << cyan << "ScalarConverter Copy Assignment Operator Called\n" << reset;
+	// std::cout << cyan << "ScalarConverter Copy Assignment Operator Called\n" << reset;
 	(void)copy;
 	return (*this);
 }

@@ -5,19 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/21 13:49:59 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/11/26 12:12:42 by bde-souz         ###   ########.fr       */
+/*   Created: 2024/11/26 12:26:28 by bde-souz          #+#    #+#             */
+/*   Updated: 2024/11/26 17:24:14 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include "Serialize.hpp"
 
-int main(int ac, char **av)
+
+int main ()
 {
-	if (ac < 2)
-		std::cout << red << "Error, no argument!" << "\n" << reset;
-	else if (ac == 2)
-		ScalarConverter::converter(av[1]);
-	else
-		std::cout << red << "Only one argument is valid!" << reset <<"\n";
+	Data person;
+	person.name = "Brendon";
+	person.age = 26;
+
+	Serialize::converter(&person);
+	
 }
