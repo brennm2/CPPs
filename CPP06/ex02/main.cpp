@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 17:47:31 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/11/26 18:20:12 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/11/27 13:40:41 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ Base	*generate(void)
 	std::srand((unsigned) time(NULL));
 	int random = std::rand() % 3;
 
-	std::cout << "Random nuber: " << random << "\n";
 	switch (random)
 	{
 	case (0):
@@ -37,14 +36,14 @@ Base	*generate(void)
 	return (NULL);
 }
 
-void	identifyPtr(Base* p)
+void	identify(Base* p)
 {
 	if (dynamic_cast<A*>(p) != NULL)
 	{
 		std::cout << green << "The type of the Object is: " \
 			<< blue << "A" << green << "!" << reset << "\n";
 	}
-	else if (dynamic_cast<B*>(p) != NULL )
+	else if (dynamic_cast<B*>(p) != NULL)
 	{
 		std::cout << green << "The type of the Object is: " \
 			<< blue << "B" << green << "!" << reset << "\n";
@@ -59,7 +58,7 @@ void	identifyPtr(Base* p)
 			<< reset << "\n";
 }
 
-void identifyReference(Base& p)
+void identify(Base& p)
 {
 	try
 	{
@@ -102,7 +101,13 @@ int main(void)
 	if (newBase == NULL)
 		return (0);
 	
-	identifyPtr(newBase);
-	identifyReference(*newBase);
+	std::cout << yellow << "\n⫘⫘⫘⫘⫘⫘  " << "Identify with Pointer" << "  ⫘⫘⫘⫘⫘⫘" << "\n" << reset;
+	identify(newBase);
+	std::cout << "\n";
+
+	std::cout << yellow << "\n⫘⫘⫘⫘⫘⫘  " << "Identify with Reference" << "  ⫘⫘⫘⫘⫘⫘" << "\n" << reset;
+	identify(*newBase);
+
+	std::cout << magenta << "\n\n⫘⫘⫘⫘⫘⫘  " << "DESTRUCTOR SEPARATOR" << "  ⫘⫘⫘⫘⫘⫘" << "\n" << reset;
 	delete newBase;
 }

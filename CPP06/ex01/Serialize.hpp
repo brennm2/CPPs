@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 12:26:51 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/11/26 17:23:10 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/11/27 13:33:52 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <string>
 #include <stdint.h>
+#include "Data.hpp"
 
 // COLORS //
 #define blue "\033[34m"
@@ -25,13 +26,6 @@
 #define magenta "\033[35m"
 #define cyan "\033[36m"
 #define reset "\033[0m"
-
-
-struct Data
-{
-	std::string name ;
-	int			age;
-};
 
 
 class Serialize

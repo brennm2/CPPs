@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 13:54:03 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/11/26 17:18:06 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/11/27 13:27:41 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,78 +119,86 @@ void ScalarConverter::charConverter(std::string c)
 	std::cout << "int: " << tempInt << "\n";
 
 	//string to float
-	float tempFloat = tempInt;
+	float tempFloat = static_cast<float>(tempInt);
 	std::cout << std::fixed << std::setprecision(2) << "float: " << tempFloat << "f" << "\n";
 	
 	//string to double
-	double tempDouble = tempInt;
+	double tempDouble = static_cast<double>(tempInt);
 	std::cout << std::fixed << std::setprecision(2) << "double: " << tempDouble << "\n";
 
 }
 
 void	ScalarConverter::intConverter(std::string c)
 {
-	long int tempStringToInt = std::strtol(c.c_str(), NULL, 10);
-	
+	double tempStringToIntDouble = std::strtod(c.c_str(), NULL);
+	float tempStringToIntFloat = std::atof(c.c_str());
+	int tempStringToInt = std::atoi(c.c_str());
+
+
 	//string(int) to char
-	if (tempStringToInt < 32)
+	if (tempStringToIntDouble < 32)
 		std::cout << "char: Non displayable" << "\n";
-	else if (tempStringToInt > 127)
+	else if (tempStringToIntDouble > 127)
 		std::cout << "char: impossible" << "\n";
 	else
 		std::cout << "char: '" << static_cast<char>(tempStringToInt) << "'\n";
 
 
-	//string to int
-	if (tempStringToInt > 2147483647 || tempStringToInt < -2147483648)
+	//string(int) to int
+	if (tempStringToIntDouble > 2147483647 || tempStringToIntDouble < -2147483648)
 		std::cout << "int: " << "impossible" << "\n";
 	else
-		std::cout << "int: " << tempStringToInt << "\n";
-	
+		std::cout << "int: " << static_cast<int>(tempStringToInt) << "\n";
 
-	//string to float
-	float tempFloat = atof(c.c_str());
-	std::cout << std::fixed << std::setprecision(2) << "float: " << tempFloat << "f" << "\n";
 
-	//string to double
-	double tempDouble = atof(c.c_str());
-	std::cout << std::fixed << std::setprecision(2) << "double: " << tempDouble  << "\n";
+	//string(int) to float
+	std::cout << std::fixed << std::setprecision(2) << "float: " \
+		<< static_cast<float>(tempStringToIntFloat) << "f" << "\n";
+
+	//string(int) to double
+	std::cout << std::fixed << std::setprecision(2) << "double: " \
+		<< static_cast<double>(tempStringToIntDouble) << "\n";
 	
 }
 
 void	ScalarConverter::floatConverter(std::string c)
 {
-	long int tempStringToInt = std::strtol(c.c_str(), NULL, 10);
+	double tempStringToIntDouble = std::strtod(c.c_str(), NULL);
+	float tempStringToIntFloat = std::atof(c.c_str());
+	int tempStringToInt = std::atoi(c.c_str());
+
 
 	//string(float) to char --------
-	if (tempStringToInt < 32)
+	if (tempStringToIntDouble < 32)
 		std::cout << "char: Non displayable" << "\n";
-	else if (tempStringToInt > 127)
+	else if (tempStringToIntDouble > 127)
 		std::cout << "char: impossible" << "\n";
 	else
 		std::cout << "char: '" << static_cast<char>(tempStringToInt) << "'\n";
 
 
 	//string(float) to int --------
-	if (tempStringToInt > 2147483647 || tempStringToInt < -2147483648)
-		std::cout << std::setprecision(2) << "int: " << "impossible" << "\n";
+	if (tempStringToIntDouble > 2147483647 || tempStringToIntDouble < -2147483648)
+		std::cout << "int: " << "impossible" << "\n";
 	else
-		std::cout << std::setprecision(2) << "int: " << tempStringToInt << "\n";
+		std::cout << "int: " << static_cast<int>(tempStringToInt) << "\n";
 
 
 	//string(float) to float --------
-	float tempFloat = atof(c.c_str());
-	std::cout << "float: " << std::fixed << std::setprecision(2) << tempFloat << "f" << "\n";
+	std::cout << std::fixed << std::setprecision(2) << "float: " \
+		<< static_cast<float>(tempStringToIntFloat) << "f" << "\n";
 
-
-	//string(float) to double --------
-	double tempDouble = atof(c.c_str());
-	std::cout << "double: " << std::fixed << std::setprecision(2) << tempDouble << "\n";
+	//string to double
+	std::cout << std::fixed << std::setprecision(2) << "double: " \
+		<< static_cast<double>(tempStringToIntDouble) << "\n";
 }
 
 void	ScalarConverter::doubleConverter(std::string c)
 {
-	long int tempStringToInt = std::strtol(c.c_str(), NULL, 10);
+	double tempStringToIntDouble = std::strtod(c.c_str(), NULL);
+	float tempStringToIntFloat = std::atof(c.c_str());
+	int tempStringToInt = std::atoi(c.c_str());
+
 
 	//string(double) to char --------
 	if (tempStringToInt < 32)
@@ -201,60 +209,42 @@ void	ScalarConverter::doubleConverter(std::string c)
 		std::cout << "char: '" << static_cast<char>(tempStringToInt) << "'\n";
 
 	//string(double) to int --------
-	if (tempStringToInt > 2147483647 || tempStringToInt < -2147483648)
-		std::cout << std::setprecision(2) << "int: " << "impossible" << "\n";
+	if (tempStringToIntDouble > 2147483647 || tempStringToIntDouble < -2147483648)
+		std::cout << "int: " << "impossible" << "\n";
 	else
-		std::cout << std::setprecision(2) << "int: " << tempStringToInt << "\n";
+		std::cout << "int: " << static_cast<int>(tempStringToInt) << "\n";
 
 	//string(double) to float --------
-	float tempFloat = atof(c.c_str());
-	std::cout << "float: " << std::fixed << std::setprecision(2) << tempFloat << "f" << "\n";
+	std::cout << std::fixed << std::setprecision(2) << "float: " \
+		<< static_cast<float>(tempStringToIntFloat) << "f" << "\n";
+
 
 	//string(double) to double --------
-	double tempDouble = atof(c.c_str());
-	std::cout << "double: " << std::fixed << std::setprecision(2) << tempDouble << "\n";
+	std::cout << std::fixed << std::setprecision(2) << "double: " \
+		<< static_cast<double>(tempStringToIntDouble) << "\n";
 }
 
 void	ScalarConverter::nanOrInfConverter(std::string c)
 {
-	if (c == "nan")
-	{
-		//string(nanOrInf) to char --------
-		std::cout << "char: impossible" << "\n";
+	double tempStringToIntDouble = std::strtod(c.c_str(), NULL);
+	float tempStringToIntFloat = std::atof(c.c_str());
+
+	//string(nanOrInf) to char --------
+	std::cout << "char: impossible" << "\n";
 
 
-		//string(nanOrInf) to int --------
-		std::cout << "int: impossible" << "\n";
+	//string(nanOrInf) to int --------
+	std::cout << "int: impossible" << "\n";
 
 
-		//string(nanOrInf) to float --------
-		float tempFloat = atof(c.c_str());
-		std::cout << "float: " << std::fixed << std::setprecision(2) << tempFloat << "f" << "\n";
+	//string(nanOrInf) to float --------
+	std::cout << std::fixed << std::setprecision(2) << "float: " \
+		<< static_cast<float>(tempStringToIntFloat) << "f" << "\n";
 
 
-		//string(nanOrInf) to double --------
-		double tempDouble = atof(c.c_str());
-		std::cout << "double: " << std::fixed << std::setprecision(2) << tempDouble << "\n";
-	}
-	else
-	{
-		//string(nanOrInf) to char --------
-		std::cout << "char: impossible" << "\n";
-
-
-		//string(nanOrInf) to int --------
-		std::cout << "int: impossible" << "\n";
-
-
-		//string(nanOrInf) to float --------
-		float tempFloat = atof(c.c_str());
-		std::cout << "float: " << std::fixed << std::setprecision(2) << tempFloat << "f" << "\n";
-
-
-		//string(nanOrInf) to double --------
-		double tempDouble = atof(c.c_str());
-		std::cout << "double: " << std::fixed << std::setprecision(2) << tempDouble << "\n";
-	}
+	//string(nanOrInf) to double --------
+	std::cout << std::fixed << std::setprecision(2) << "double: " \
+		<< static_cast<double>(tempStringToIntDouble) << "\n";
 }
 
 void	ScalarConverter::converter(std::string c)
