@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:14:42 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/12/03 18:20:46 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/12/04 15:00:22 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,13 @@ void	toUpperPrint(char c)
 
 int main( void )
 {
-	int arrayInt[] = {1, 2, 3, 4, 5}; 
+	int arrayInt[] = {1, 2, 3, 4, 5};
 	int arrayChar[] = {'a', 'b', 'c', 'd', 'f'};
 
-
+	std::cout << yellow << "\n⫘⫘⫘⫘⫘⫘  " << "Int Tester" << "  ⫘⫘⫘⫘⫘⫘" << "\n" << reset;
 	iter(arrayInt, 5, addOne);
+
+	std::cout << yellow << "\n⫘⫘⫘⫘⫘⫘  " << "String Tester" << "  ⫘⫘⫘⫘⫘⫘" << "\n" << reset;
 	iter(arrayChar, 5, toUpperPrint);
 
 }
