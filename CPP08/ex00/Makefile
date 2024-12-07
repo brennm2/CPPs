@@ -1,6 +1,6 @@
 MAKEFLAGS += -s
 
-NAME = Function
+NAME = EasyFind
 
 CC = c++ -g
 CCFLAGS = -Wall -Werror -Wextra -std=c++98
