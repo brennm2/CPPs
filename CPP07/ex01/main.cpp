@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:14:42 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/12/04 15:00:22 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/12/09 11:22:43 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	addOne(int number)
 	std::cout << "addOne: " << tempNumber << "\n";
 }
 
-void	toUpperPrint(char c)
+void	toUpperPrint(const char c)
 {
 	std::cout << static_cast<char>(toupper(c)) << "\n";
 }
@@ -36,3 +36,5 @@ int main( void )
 	iter(arrayChar, 5, toUpperPrint);
 
 }
+
+

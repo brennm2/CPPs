@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:14:42 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/12/04 16:03:15 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/12/09 11:44:36 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main( void )
 	try
 	{
 		Array<int> intArray(10);
-		std::cout << intArray[4] << "\n";
+		std::cout << "Array: " << intArray[4] << "\n";
 		std::cout << "Size of the Array: " << intArray.size() << "\n";
 		std::cout << intArray[10] << "\n";
 	}
@@ -33,7 +33,7 @@ int main( void )
 	try
 	{
 		Array<std::string> stringArray(500);
-		std::cout << stringArray[4] << "\n";
+		std::cout << "Array: " << stringArray[4] << "\n";
 		std::cout << "Size of the Array: " << stringArray.size() << "\n";
 		std::cout << stringArray[-5] << "\n";
 	}
@@ -45,8 +45,8 @@ int main( void )
 }
 
 // #include <iostream>
+// #include "Array.hpp"
 // #include <stdlib.h>
-// #include "Array.tpp"
 
 // #define MAX_VAL 750
 // int main(int, char**)
@@ -84,7 +84,7 @@ int main( void )
 //     }
 //     try
 //     {
-//         numbers[750] = 0;
+//         numbers[MAX_VAL] = 0;
 //     }
 //     catch(const std::exception& e)
 //     {
@@ -96,6 +96,11 @@ int main( void )
 //         numbers[i] = rand();
 //     }
 
+// 	for (int i = 0; i < MAX_VAL; i++)
+//     {
+//         std::cout << "A: " << numbers[i] << "\n";
+//     }
+
 //     delete [] mirror;//
 //     return 0;
-// }
+//}
