@@ -5,35 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/05 10:52:47 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/12/09 14:49:48 by bde-souz         ###   ########.fr       */
+/*   Created: 2024/12/09 18:05:48 by bde-souz          #+#    #+#             */
+/*   Updated: 2024/12/09 18:35:45 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "easyfind.hpp"
+#include "Span.hpp"
 
 int main(void)
 {
-	
-	std::vector<int> vec;
-
-	vec.push_back(10);
-	vec.push_back(20);
-	vec.push_back(30);
-	
-	for (size_t i = 0; i < vec.size(); i++)
-	{
-		std::cout << "vec: " << vec[i] << "\n";
-	}
-
 	try
 	{
-		std::vector<int>::iterator vecIter = easyFind(vec, 40);
-		std::cout << "Found!: " << green << *vecIter << "\n" << reset;
+		Span newSpan(5);
+
+		newSpan.addNumber(1);
+		newSpan.addNumber(2);
+		newSpan.addNumber(3);
+		newSpan.addNumber(4);
+		newSpan.addNumber(5);
+		newSpan.addNumber(6);
+		
+		newSpan.printVec();
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << red << e.what() << '\n' << reset;
 	}
+	
+	
+	
+
+
 
 }
