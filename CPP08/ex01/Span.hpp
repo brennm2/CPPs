@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 18:06:07 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/12/09 18:39:22 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/12/10 16:03:59 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,11 @@
 
 #include <iostream>
 #include <string>
+#include <algorithm>
 #include <vector>
+#include <limits>
+#include <ctime>
+#include <cstdlib>
 
 // COLORS //
 #define blue "\033[34m"
@@ -31,12 +35,14 @@ class Span
 {
 private:
 	unsigned int _N;
-	unsigned int _currentN;
 	std::vector<int> _vec;
 
 public:
-	void addNumber(int number);
-	void printVec(void);
+	void	addNumber(int number);
+	void	printVec(void);
+	int		shortestSpan();
+	int		longestSpan();
+	void	addRNumber(size_t amount);
 
 	Span();
 	Span(unsigned int number);
@@ -46,6 +52,11 @@ public:
 } ;
 
 class NoSpaceLeft : public std::exception
+{
+	const char* what() const throw();
+};
+
+class ToLowNumber : public std::exception
 {
 	const char* what() const throw();
 };
