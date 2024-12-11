@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.hpp                                       :+:      :+:    :+:   */
+/*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/07 13:06:08 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/12/11 18:31:48 by bde-souz         ###   ########.fr       */
+/*   Created: 2024/12/11 15:37:19 by bde-souz          #+#    #+#             */
+/*   Updated: 2024/12/11 16:21:45 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef easyfind_HPP
-#define easyfind_HPP
+#ifndef MutantStack_HPP
+#define MutantStack_HPP
 
 #include <iostream>
 #include <string>
 #include <algorithm>
 #include <vector>
-#include <iomanip>
+#include <stack>
+#include <list>
 
 // COLORS //
 #define blue "\033[34m"
@@ -29,29 +30,18 @@
 #define reset "\033[0m"
 
 
-class NoMatch : public std::exception
-{
-	const char* what() const throw();
-};
-
-const char* NoMatch::what() const throw()
-{
-	return "Error: No match has been found!";
-}
-
 template <typename T>
-typename T::iterator easyFind(T& container, int number)
+class MutantStack : public std::stack<T>
 {
-	typename T::iterator i;
+public:
+	MutantStack();
+	~MutantStack();
+	MutantStack(const MutantStack &copy);
+	MutantStack &operator=(const MutantStack &copy);
 
-	i = std::find(container.begin(), container.end(), number);
-
-	if (i == container.end())
-		throw NoMatch();
-	else
-		return (std::find (container.begin(), container.end(), number));
-}
-
-
+	typedef typename std::stack<T>::container_type::iterator iterator;
+	iterator begin();
+	iterator end();
+} ;
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 18:06:04 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/12/10 18:09:20 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/12/11 18:37:41 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void Span::addRNumber(size_t amount)
 		int random_num = 0;
 		for (size_t i = 0; i < this->_N; i++)
 		{
-			random_num = ::rand() % 20000;
+			random_num = ::rand() % 10000;
 			this->_vec.push_back(random_num);
 		}
 	}
@@ -41,7 +41,7 @@ int Span::shortestSpan()
 
 	for (size_t i = 1; i < organizedVec.size(); i++)
 	{
-		span = organizedVec[i] - organizedVec[i - 1];
+		span = (organizedVec[i] - organizedVec[i - 1]);
 		if (tempSpan > span)
 			tempSpan = span;
 	}

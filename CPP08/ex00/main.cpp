@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:52:47 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/12/09 14:49:48 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/12/11 18:25:45 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main(void)
 
 	try
 	{
-		std::vector<int>::iterator vecIter = easyFind(vec, 40);
+		std::vector<int>::iterator vecIter = easyFind(vec, 30);
 		std::cout << "Found!: " << green << *vecIter << "\n" << reset;
 	}
 	catch(const std::exception& e)

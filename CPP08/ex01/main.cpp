@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 18:05:48 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/12/10 18:00:04 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/12/11 18:37:55 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ int main(void)
 	std::cout << yellow << "\n⫘⫘⫘⫘⫘⫘  " << "Add amount" << "  ⫘⫘⫘⫘⫘⫘" << "\n" << reset;
 	try
 	{
-		Span newSpan(20000);
+		Span newSpan(5);
 
-		newSpan.addRNumber(20000);
+		newSpan.addRNumber(5);
 
 		std::cout << cyan <<"Shortest Span: " \
 			<< green << newSpan.shortestSpan() << "\n" << reset;
@@ -70,7 +70,7 @@ int main(void)
 			<< green << newSpan.longestSpan() << "\n" << reset;
 
 
-		// newSpan.printVec();
+		newSpan.printVec();
 	}
 	catch(const std::exception& e)
 	{
