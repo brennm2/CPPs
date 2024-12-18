@@ -1,6 +1,6 @@
 MAKEFLAGS += -s
 
-NAME = btc
+NAME = RPN
 
 CC = c++ -g
 CCFLAGS = -Wall -Werror -Wextra -std=c++98
@@ -12,7 +12,7 @@ YELLOW=\033[1;93m
 NC=\033[0m
 
 SRC = main.cpp \
-	BitcoinExchange.cpp\
+	RPN.cpp\
 
 
 OBJ = $(SRC:.cpp=.o)

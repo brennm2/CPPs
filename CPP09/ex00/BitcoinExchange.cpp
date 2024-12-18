@@ -6,43 +6,114 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 12:23:42 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/12/17 17:52:07 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/12/18 15:22:21 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-bool checkInput(std::string date, float value)
+bool checkIfNumber(std::string str)
 {
-	(void)value;
-	size_t pos1 = date.find("-");
-	size_t pos2 = date.find("-" , pos1 + 1);
+	int dotNumber = 0;
+	std::string::const_iterator it = str.begin();
+	while (it != str.end())
+	{
+		if ((std::isdigit(*it) || *it == '.') && dotNumber < 2)
+		{
+			if (*it == '.')
+				dotNumber++;
+			it++;
+		}
+		else
+			return (false);
+	}
+	if (str.empty())
+		return (false);
+	return (true);
+}
 
-	std::string year = date.substr(0, pos1);
-	std::string month = date.substr(pos1 + 1, pos2 - pos1 - 1);
-	std::string days = date.substr(pos2 + 1);
+bool checkInput(std::string date, std::string value)
+{
+	if (date.size() != 10 || date[4] != '-' || date[7] != '-')
+	{
+		std::cout << red << "Error: Bad input => " << date << "\n" << reset;
+		return (false);
+	}
+	if (std::atof(value.c_str()) < 0)
+	{
+		std::cout << red << "Error: not a positive number." << reset << "\n";
+		return (false);
+	}
+	if (std::atof(value.c_str()) > 1000)
+	{
+		std::cout << red << "Error: too large a number." << reset << "\n";
+		return (false);
+	}
+	if (!checkIfNumber(value))
+	{
+		std::cout << red << "Error: Bad input (invalid value) => " << date << "\n" << reset;
+		return (false);
+	}
+
+	size_t pos1 = date.find("-");
+	size_t pos2 = date.find("-", pos1 + 1);
+
+	std::string stringYear = date.substr(0, pos1);
+	std::string stringMonth = date.substr(pos1 + 1, pos2 - pos1 - 1);
+	std::string stringDays = date.substr(pos2 + 1);
+	int year = std::atoi(stringYear.c_str());
+	int month = std::atoi(stringMonth.c_str());
+	int days = std::atoi(stringDays.c_str());
+
 
 	//Check if is empty
-	if (year.empty() || month.empty() || days.empty())
+	if (stringYear.empty() || stringDays.empty() || stringDays.empty())
 	{
-		std::cout << "ERRO! empty" << "\n";
+		std::cout << red << "Error: Bad input (empty date) =>" << date << "\n" << reset;
 		return (false);
 	}
+	//check if is all numbers
+	else if (!checkIfNumber(stringYear) || !checkIfNumber(stringMonth) || !checkIfNumber(stringYear))
+	{
+		std::cout << red << "Error: Bad input (not all numbers) => " << date << "\n" << reset;
+		return (false);
+	}
+
 	//check if a valid month
-	else if(std::atoi(month.c_str()) > 12 || std::atoi(month.c_str()) < 1)
+	else if(month > 12 || month < 1)
 	{
-		std::cout << "ERRO! invalid month" << "\n";
+		std::cout << red << "Error: Bad input (invalid month)=> " << date << "\n" << reset;
 		return (false);
 	}
-
-	// std::cout << "year: >" << year << "<\n";
-	// std::cout << "month: >" << month << "<\n";
-	// std::cout << "days: >" << days << "<\n";
-
-	// std::cout << "Value: " << value << "\n";
-	// std::cout << "\n";
-	// std::cout << "\n";
+	//check if is a valid year
+	else if (year < 1900 || year > 2100)
+	{
+		std::cout << red << "Error: Bad input (invalid year)=> " << date << "\n" << reset;
+		return (false);
+	}
+	//check for days
+	int daysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	if ((year % 4 == 0 && year % 100 != 0) \
+		|| year % 400 == 0)
+		daysInMonth[1] = 29;
+	if (days < 1 || days > daysInMonth[month - 1])
+	{
+		std::cout << red << "Error: Bad input (invalid day) => " << date << "\n" << reset;
+		return (false);
+	}
 	return (true);
+}
+
+void getValueDataBase(std::map<std::string, float> dataBase, std::string date, float value)
+{
+
+	std::map<std::string, float>::iterator it;
+	it = dataBase.lower_bound(date);
+	if (it != dataBase.begin() && (it == dataBase.end() || it->first != date))
+		--it;
+	std::cout << date << " => ";
+	std::cout << value << " = ";
+	std::cout << it->second * value << "\n";
 }
 
 
@@ -55,7 +126,7 @@ void BitcoinExchange::readInput(std::string input)
 	std::ifstream theFile(input.c_str());
 	if (theFile.fail())
 	{
-		std::cout << "FALHOU" << "\n";
+		std::cout << "Failed to open the file" << "\n";
 		return ;
 	}
 	int tempI = 0;
@@ -63,33 +134,34 @@ void BitcoinExchange::readInput(std::string input)
 	{
 		if (tempI > 0)
 		{
-			date = arrayString.substr(0, arrayString.find("|") - 1);
-			value = arrayString.substr(arrayString.find("|") + 2);
-
-			if (checkInput(date, std::atof(value.c_str())))
-			{
-				std::cout << "Passed" << "\n";
-				// std::cout << "data: " << date << "\n";
-				// std::cout << "value: " << value << "\n";
-				// std::cout << "\n";
-
-			}
+			if (arrayString.empty())
+				std::cout << "Error: Bad input (empty line)"<< "\n";
 			else
 			{
-				std::cout << "RIP!" << "\n";
+				date = arrayString.substr(0, arrayString.find("|") - 1);
+				value = arrayString.substr(arrayString.find("|") + 2);
+				if (checkInput(date, value))
+				{
+					getValueDataBase(this->database, date, std::atof(value.c_str()));
+				}
 			}
 		}
 		tempI++;
 	}
 }
 
-void BitcoinExchange::readTheFileToDataBase()
+bool BitcoinExchange::readTheFileToDataBase()
 {
 	std::string arrayString;
 	std::string data;
 	std::string value;
 
 	std::ifstream theFile("data.csv");
+	if (theFile.fail())
+	{
+		std::cout << red << "Error with DataBase file" << "\n" << reset;
+		return (false);
+	}
 	int tempI = 0;
 	while(getline(theFile, arrayString))
 	{
@@ -101,9 +173,7 @@ void BitcoinExchange::readTheFileToDataBase()
 		}
 		tempI++;
 	}
-
-
-	
+	return (true);
 }
 
 
@@ -135,3 +205,5 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &copy)
 	}
 	return (*this);
 }
+
+

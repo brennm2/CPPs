@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 11:45:36 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/12/18 14:42:38 by bde-souz         ###   ########.fr       */
+/*   Created: 2024/12/18 16:05:50 by bde-souz          #+#    #+#             */
+/*   Updated: 2024/12/18 18:53:48 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BitcoinExchange_HPP
-#define BitcoinExchange_HPP
+#ifndef RPN_HPP
+#define RPN_HPP
 
 #include <iostream>
-#include <fstream>
 #include <string>
+#include <stack>
+#include <fstream>
 #include <iomanip>
-#include <map>
 #include <cstdlib>
+#include <sstream>
+#include <cctype>
+#include <stdexcept>
+#include <limits>
 
 // COLORS //
 #define blue "\033[34m"
@@ -29,23 +33,24 @@
 #define cyan "\033[36m"
 #define reset "\033[0m"
 
+static long int MAX_INT = std::numeric_limits<int>::max();
+static long int MIN_INT = std::numeric_limits<int>::min();
 
-class BitcoinExchange
+
+class RPN
 {
 private:
+	std::stack <long int> _numberStack;
 public:
-	std::map <std::string, float> database;
 
-	bool readTheFileToDataBase();
-	void readInput(std::string input);
-	
-	BitcoinExchange();
-	~BitcoinExchange();
-	BitcoinExchange(const BitcoinExchange &copy);
-	BitcoinExchange &operator=(const BitcoinExchange &copy);
+	void calculation(std::string str);
+	bool isValidNumber(std::string input);
+	bool isValidOperator(std::string input);
 
-
-
+	RPN();
+	~RPN();
+	RPN(const RPN &copy);
+	RPN &operator=(const RPN &copy);
 } ;
 
 #endif
