@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 12:23:42 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/12/18 15:22:21 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/12/19 13:36:18 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,22 +36,22 @@ bool checkInput(std::string date, std::string value)
 {
 	if (date.size() != 10 || date[4] != '-' || date[7] != '-')
 	{
-		std::cout << red << "Error: Bad input => " << date << "\n" << reset;
+		std::cerr << red << "Error: Bad input => " << date << "\n" << reset;
 		return (false);
 	}
 	if (std::atof(value.c_str()) < 0)
 	{
-		std::cout << red << "Error: not a positive number." << reset << "\n";
+		std::cerr << red << "Error: not a positive number." << reset << "\n";
 		return (false);
 	}
 	if (std::atof(value.c_str()) > 1000)
 	{
-		std::cout << red << "Error: too large a number." << reset << "\n";
+		std::cerr << red << "Error: too large a number." << reset << "\n";
 		return (false);
 	}
 	if (!checkIfNumber(value))
 	{
-		std::cout << red << "Error: Bad input (invalid value) => " << date << "\n" << reset;
+		std::cerr << red << "Error: Bad input (invalid value) => " << date << "\n" << reset;
 		return (false);
 	}
 
@@ -69,26 +69,26 @@ bool checkInput(std::string date, std::string value)
 	//Check if is empty
 	if (stringYear.empty() || stringDays.empty() || stringDays.empty())
 	{
-		std::cout << red << "Error: Bad input (empty date) =>" << date << "\n" << reset;
+		std::cerr << red << "Error: Bad input (empty date) =>" << date << "\n" << reset;
 		return (false);
 	}
 	//check if is all numbers
 	else if (!checkIfNumber(stringYear) || !checkIfNumber(stringMonth) || !checkIfNumber(stringYear))
 	{
-		std::cout << red << "Error: Bad input (not all numbers) => " << date << "\n" << reset;
+		std::cerr << red << "Error: Bad input (not all numbers) => " << date << "\n" << reset;
 		return (false);
 	}
 
 	//check if a valid month
 	else if(month > 12 || month < 1)
 	{
-		std::cout << red << "Error: Bad input (invalid month)=> " << date << "\n" << reset;
+		std::cerr << red << "Error: Bad input (invalid month)=> " << date << "\n" << reset;
 		return (false);
 	}
 	//check if is a valid year
 	else if (year < 1900 || year > 2100)
 	{
-		std::cout << red << "Error: Bad input (invalid year)=> " << date << "\n" << reset;
+		std::cerr << red << "Error: Bad input (invalid year)=> " << date << "\n" << reset;
 		return (false);
 	}
 	//check for days
@@ -98,7 +98,7 @@ bool checkInput(std::string date, std::string value)
 		daysInMonth[1] = 29;
 	if (days < 1 || days > daysInMonth[month - 1])
 	{
-		std::cout << red << "Error: Bad input (invalid day) => " << date << "\n" << reset;
+		std::cerr << red << "Error: Bad input (invalid day) => " << date << "\n" << reset;
 		return (false);
 	}
 	return (true);
@@ -126,7 +126,7 @@ void BitcoinExchange::readInput(std::string input)
 	std::ifstream theFile(input.c_str());
 	if (theFile.fail())
 	{
-		std::cout << "Failed to open the file" << "\n";
+		throw std::runtime_error("Failed to open the file");
 		return ;
 	}
 	int tempI = 0;
@@ -135,7 +135,7 @@ void BitcoinExchange::readInput(std::string input)
 		if (tempI > 0)
 		{
 			if (arrayString.empty())
-				std::cout << "Error: Bad input (empty line)"<< "\n";
+				std::cerr << "Error: Bad input (empty line)"<< "\n";
 			else
 			{
 				date = arrayString.substr(0, arrayString.find("|") - 1);
@@ -159,7 +159,7 @@ bool BitcoinExchange::readTheFileToDataBase()
 	std::ifstream theFile("data.csv");
 	if (theFile.fail())
 	{
-		std::cout << red << "Error with DataBase file" << "\n" << reset;
+		throw std::runtime_error("Problem with DataBase file");
 		return (false);
 	}
 	int tempI = 0;

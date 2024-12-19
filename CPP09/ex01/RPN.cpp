@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 16:05:55 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/12/18 18:55:44 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/12/19 11:16:28 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,10 +77,8 @@ void RPN::calculation(std::string input)
 		}
 		else
 			throw std::runtime_error("Syntax Error what!");
-
 	}
 	std::cout << "Result: " << this->_numberStack.top() << "\n";
-	// std::cout << "size: " << this->_numberStack.size() << "\n";
 }
 
 
