@@ -1,33 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/18 15:31:07 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/12/20 14:19:23 by bde-souz         ###   ########.fr       */
+/*   Created: 2025/01/06 15:01:52 by bde-souz          #+#    #+#             */
+/*   Updated: 2025/01/06 16:04:53 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RPN.hpp"
-
-int main(int ac, char **av)
-{
-	RPN Stack;
-	if (ac == 2)
-	{
-		try
-		{
-			Stack.calculation(av[1]);
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << red << "Error: "<< e.what() << '\n' << reset;
-		}
-	}
-	else
-	{
-		std::cout << red << "Problem with arguments!" << "\n" << reset;
-	}
-}

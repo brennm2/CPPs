@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 16:05:55 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/12/19 11:16:28 by bde-souz         ###   ########.fr       */
+/*   Updated: 2024/12/20 14:14:25 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,12 @@ bool RPN::isValidOperator(std::string input)
 
 bool RPN::isValidNumber(std::string input)
 {
-	if (input.size() > 1 || this->_numberStack.size() > 2)
+	if (input.size() > 1)
 		throw std::runtime_error("Number Syntax Error!");
-
 	if (!std::isdigit(input[0]))
-	{
 		return (false);
-	}
-	return (true);
+	else
+		return (true);
 }
 
 void RPN::calculation(std::string input)
@@ -67,17 +65,33 @@ void RPN::calculation(std::string input)
 				if (result > MAX_INT || result < MIN_INT)
 					throw std::runtime_error("Number Overflow!");
 			}
+			else if (str == "-")
+			{
+				result = numberA - numberB;
+				if (result > MAX_INT || result < MIN_INT)
+					throw std::runtime_error("Number Overflow!");
+			}
 			else if (str == "*")
 			{
-				if (numberA > MAX_INT || numberB >> MAX_INT)
-					throw std::runtime_error("Number Overflow!");
 				result = numberA * numberB;
+				if (result > MAX_INT || result >> MAX_INT)
+					throw std::runtime_error("Number Overflow!");
+			}
+			else if (str == "/")
+			{
+				if (numberB == 0)
+					throw std::runtime_error("Number divided by Zero");
+				result = numberA / numberB;
+				if (result > MAX_INT || result >> MAX_INT)
+					throw std::runtime_error("Number Overflow!");
 			}
 			this->_numberStack.push(result);
 		}
 		else
 			throw std::runtime_error("Syntax Error what!");
 	}
+	if (this->_numberStack.size() > 1)
+		throw std::runtime_error("Syntax Error!");
 	std::cout << "Result: " << this->_numberStack.top() << "\n";
 }
 
