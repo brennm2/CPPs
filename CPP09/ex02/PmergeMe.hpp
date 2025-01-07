@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 15:01:54 by bde-souz          #+#    #+#             */
-/*   Updated: 2025/01/06 15:08:27 by bde-souz         ###   ########.fr       */
+/*   Updated: 2025/01/07 18:46:33 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 #include <cctype>
 #include <stdexcept>
 #include <limits>
+#include <vector>
 
 
 // COLORS //
@@ -38,8 +39,13 @@
 class PmergeMe 
 {
 private:
+	std::vector<long> _vector;
 	
 public:
+	
+	void argsToVector(int ac, char **av);
+	void printVector(void);
+
 	PmergeMe();
 	~PmergeMe();
 	PmergeMe(const PmergeMe &copy);

@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 15:01:47 by bde-souz          #+#    #+#             */
-/*   Updated: 2025/01/06 16:33:18 by bde-souz         ###   ########.fr       */
+/*   Updated: 2025/01/07 18:53:47 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,40 @@ void	syntaxChecker(int ac, char **av)
 
 }
 
+void printBefore(int ac, char **av)
+{
+	std::cout << blue << "Before: " << reset;
+	for (int i = 1; i < ac; i++)
+	{
+		std::cout << av[i] << " ";
+	}
+	std::cout << "\n";
+	
+}
+
+void printTimer(std::clock_t start, std::clock_t end, int ac)
+{
+	std::clock_t
+	std::cout << "Time to process a range of " << "\n";
+}
+
 int main(int ac, char **av)
 {
+	PmergeMe Numbers;
 	try
 	{
 		syntaxChecker(ac, av);
+		printBefore(ac, av);
+		Numbers.argsToVector(ac, av);
+
+		std::clock_t startClock;
+		std::clock_t endClock;
+
+		startClock = std::clock();
+		endClock = std::clock();
+
+
+		
 	}
 	catch(const std::exception& e)
 	{
