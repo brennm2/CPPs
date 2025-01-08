@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 15:01:47 by bde-souz          #+#    #+#             */
-/*   Updated: 2025/01/07 18:53:47 by bde-souz         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:37:55 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void checkIfNegative(int ac, char **av)
 
 void	syntaxChecker(int ac, char **av)
 {
+	// std::cout << ac << "\n";
 	if (ac < 2)
 		throw std::runtime_error("Wrong number of arguments!\nTry something like: ./PmergeMe 3 5 9 7 4");
 	checkIfNegative(ac, av);
@@ -69,11 +70,25 @@ void printBefore(int ac, char **av)
 	
 }
 
-void printTimer(std::clock_t start, std::clock_t end, int ac)
+void printTimer(std::clock_t start, std::clock_t end, int ac, int option)
 {
-	std::clock_t
-	std::cout << "Time to process a range of " << "\n";
+	// std::clock_t finalTime;
+
+	// finalTime = end - start;
+	double finalTime = static_cast<double>(end - start) / CLOCKS_PER_SEC;
+	switch (option)
+	{
+	case 1:
+		std::cout << "Time to process a range of " << green << ac - 1 << reset
+			<< " elements with std::vector: " << green << std::fixed << std::setprecision(5) << finalTime << reset << " us" << "\n";
+		break;
+	case 2:
+		std::cout << "Time to process a range of " << green << ac - 1 << reset
+			<< " elements with std::asdasdasdad: " << green << std::fixed << std::setprecision(5) << finalTime << reset << " us" << "\n";
+		break;
+	}
 }
+
 
 int main(int ac, char **av)
 {
@@ -88,8 +103,9 @@ int main(int ac, char **av)
 		std::clock_t endClock;
 
 		startClock = std::clock();
+		Numbers.organizeVector();
 		endClock = std::clock();
-
+		printTimer(startClock, endClock, ac, 1);
 
 		
 	}
