@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 15:01:54 by bde-souz          #+#    #+#             */
-/*   Updated: 2025/01/08 17:51:48 by bde-souz         ###   ########.fr       */
+/*   Updated: 2025/01/09 18:39:28 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 #include <stdexcept>
 #include <limits>
 #include <vector>
+#include <deque>
 #include <ctime>
 
 
@@ -36,31 +37,65 @@
 #define cyan "\033[36m"
 #define reset "\033[0m"
 
-
 class PmergeMe 
 {
 private:
+
+	// Vector
+	bool	_oddVector;
 	std::vector<long> _vector;
 	std::vector<long> _vectorOrganized;
-
 	std::vector<std::pair<long, long> > _vectorPairs;
-	
 	long _vectorLastElement;
+
+	
+	// Deque
+	bool	_oddDeque;
+	std::deque<long> _deque;
+	std::deque<long> _dequeOrganized;
+	std::deque<std::pair<long, long> > _dequePairs;
+	long _dequeLastElement;
 	
 public:
 	
-	// Vector
+	// Vector ------------------------- //
 	void argsToVector(int ac, char **av);
 	void organizeVector(void);
 	void splitIntoPairsVector(void);
 	void organizePairsVector(void);
 	void organizePairVectorRecursively(std::vector<std::pair<long, long> > &pairs);
 	void putSmallestNumberinVector(void);
+	void putTheRestVector(void);
+	void binarySearchVector(long number);
+	std::vector<long> createJacobVector(void);
 
-	//Print
+	//			--Print--
 	void printVector(std::vector<long> vec);
-	void printPairs(std::vector<std::pair<long, long> > &pair);
+	void printPairsVector(std::vector<std::pair<long, long> > &pair);
+	
 
+	// --------------------------------- //
+	
+	// Deque --------------------------- //
+	void argsToDeque(int ac, char **av);
+	void organizeDeque(void);
+	void splitIntoPairsDeque(void);
+	void organizePairsDeque(void);
+	void organizePairDequeRecursively(std::deque<std::pair<long, long> > &pairs);
+	void putSmallestNumberinDeque(void);
+	void putTheRestDeque(void);
+	std::deque<long> createJacobDeque(void);
+	void binarySearchDeque(long number);
+
+
+
+	void printPairsDeque(std::deque<std::pair<long, long> > &pair);
+	void printDeque(std::deque<long> vec);
+
+	// --------------------------------- //
+
+
+	std::vector<long> getOrganizedVector(void);
 	PmergeMe();
 	~PmergeMe();
 	PmergeMe(const PmergeMe &copy);

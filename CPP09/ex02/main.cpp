@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 15:01:47 by bde-souz          #+#    #+#             */
-/*   Updated: 2025/01/08 15:37:55 by bde-souz         ###   ########.fr       */
+/*   Updated: 2025/01/09 18:46:15 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void checkIfNegative(int ac, char **av)
 
 void	syntaxChecker(int ac, char **av)
 {
-	// std::cout << ac << "\n";
 	if (ac < 2)
 		throw std::runtime_error("Wrong number of arguments!\nTry something like: ./PmergeMe 3 5 9 7 4");
 	checkIfNegative(ac, av);
@@ -68,6 +67,17 @@ void printBefore(int ac, char **av)
 	}
 	std::cout << "\n";
 	
+}
+
+void printAfter(PmergeMe &numbers, int option)
+{
+	switch (option)
+	{
+		case 1 :
+			std::cout << green << "After: " << reset ;
+			numbers.printVector(numbers.getOrganizedVector());
+			break;
+	}
 }
 
 void printTimer(std::clock_t start, std::clock_t end, int ac, int option)
@@ -98,14 +108,25 @@ int main(int ac, char **av)
 		syntaxChecker(ac, av);
 		printBefore(ac, av);
 		Numbers.argsToVector(ac, av);
+		Numbers.argsToDeque(ac, av);
 
 		std::clock_t startClock;
 		std::clock_t endClock;
 
+		// Vector
 		startClock = std::clock();
 		Numbers.organizeVector();
 		endClock = std::clock();
+		printAfter(Numbers, 1);
 		printTimer(startClock, endClock, ac, 1);
+
+
+		// Deque
+		startClock = std::clock();
+		Numbers.organizeDeque();
+		endClock = std::clock();
+		printTimer(startClock, endClock, ac, 2);
+
 
 		
 	}
