@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 15:01:47 by bde-souz          #+#    #+#             */
-/*   Updated: 2025/01/09 18:46:15 by bde-souz         ###   ########.fr       */
+/*   Updated: 2025/01/10 15:31:47 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,14 +77,15 @@ void printAfter(PmergeMe &numbers, int option)
 			std::cout << green << "After: " << reset ;
 			numbers.printVector(numbers.getOrganizedVector());
 			break;
+		case 2 :
+			std::cout << green << "After: " << reset ;
+			numbers.printDeque(numbers.getOrganizedDeque());
+			break;
 	}
 }
 
 void printTimer(std::clock_t start, std::clock_t end, int ac, int option)
 {
-	// std::clock_t finalTime;
-
-	// finalTime = end - start;
 	double finalTime = static_cast<double>(end - start) / CLOCKS_PER_SEC;
 	switch (option)
 	{
@@ -94,7 +95,7 @@ void printTimer(std::clock_t start, std::clock_t end, int ac, int option)
 		break;
 	case 2:
 		std::cout << "Time to process a range of " << green << ac - 1 << reset
-			<< " elements with std::asdasdasdad: " << green << std::fixed << std::setprecision(5) << finalTime << reset << " us" << "\n";
+			<< " elements with std::deque: " << green << std::fixed << std::setprecision(5) << finalTime << reset << " us" << "\n";
 		break;
 	}
 }
@@ -128,7 +129,8 @@ int main(int ac, char **av)
 		printTimer(startClock, endClock, ac, 2);
 
 
-		
+		std::cout << yellow << "\n⫘⫘⫘⫘⫘⫘  " << "DEQUE" << "  ⫘⫘⫘⫘⫘⫘" << "\n" << reset;
+		printAfter(Numbers, 2);
 	}
 	catch(const std::exception& e)
 	{

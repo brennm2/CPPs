@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 15:01:52 by bde-souz          #+#    #+#             */
-/*   Updated: 2025/01/09 18:53:32 by bde-souz         ###   ########.fr       */
+/*   Updated: 2025/01/10 14:45:21 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,7 +150,11 @@ void PmergeMe::putTheRestDeque(void)
 		for (size_t j = jacob[i]; (long)j > jacob[i - 1]; j--)
 		{
 			if (j >= this->_dequePairs.size())
+			{
+				if (this->_dequePairs.size() == 1 && this->_oddDeque == true)
+					binarySearchDeque(this->_dequeLastElement);
 				continue;
+			}
 			binarySearchDeque(this->_dequePairs[j].first);
 			if(this->_dequeOrganized.size() == (2 *(_dequePairs.size())))
 			{
@@ -246,29 +250,29 @@ void PmergeMe::organizeVector(void)
 
 	// Phase 2
 	organizePairsVector();
-	printPairsVector(this->_vectorPairs); //DEBUG
+	//printPairsVector(this->_vectorPairs); //DEBUG
 
 	// Phase 3
 	organizePairVectorRecursively(this->_vectorPairs);
-	std::cout << "\nFASE 3" << "\n";
-	printPairsVector(this->_vectorPairs); //DEBUG
+	//std::cout << "\nFASE 3" << "\n";
+	//printPairsVector(this->_vectorPairs); //DEBUG
 
 	// Put the biggest numbers in the _vectorOrganized
 	for (std::vector<std::pair<long, long> >::iterator it = _vectorPairs.begin(); it != _vectorPairs.end(); it++)
 		_vectorOrganized.push_back(it->second);
 
-	std::cout << "\nVector atual, fase 3: ";
-	printVector(this->_vectorOrganized); //DEBUG
+	//std::cout << "\nVector atual, fase 3: ";
+	//printVector(this->_vectorOrganized); //DEBUG
 
 	// Phase 4
 	putSmallestNumberinVector();
-	std::cout << "\nVector atual, fase 4: ";
-	printVector(this->_vectorOrganized); //DEBUG
+	//std::cout << "\nVector atual, fase 4: ";
+	//printVector(this->_vectorOrganized); //DEBUG
 
 	// Phase 5
 	putTheRestVector();
-	std::cout << "\nVector atual, fase 5: ";
-	printVector(this->_vectorOrganized); //DEBUG
+	//std::cout << "\nVector atual, fase 5: ";
+	//printVector(this->_vectorOrganized); //DEBUG
 }
 
 // -- PHASE 1 -- //
@@ -370,12 +374,14 @@ void PmergeMe::putTheRestVector(void)
 
 	for (size_t i = 1; i < jacob.size(); i++)
 	{
-		std::cout << "HERE" << "\n";
 		for (size_t j = jacob[i]; (long)j > jacob[i - 1]; j--)
 		{
-
 			if (j >= this->_vectorPairs.size())
+			{
+				if (this->_vectorPairs.size() == 1 && this->_oddVector == true)
+					binarySearchVector(this->_vectorLastElement);
 				continue;
+			}
 			binarySearchVector(this->_vectorPairs[j].first);
 			if(this->_vectorOrganized.size() == (2 *(_vectorPairs.size())))
 			{
@@ -463,6 +469,11 @@ void PmergeMe::binarySearchVector(long number)
 std::vector<long> PmergeMe::getOrganizedVector(void)
 {
 	return this->_vectorOrganized;
+}
+
+std::deque<long> PmergeMe::getOrganizedDeque(void)
+{
+	return this->_dequeOrganized;
 }
 
 PmergeMe::PmergeMe()

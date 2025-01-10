@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 15:01:54 by bde-souz          #+#    #+#             */
-/*   Updated: 2025/01/09 18:39:28 by bde-souz         ###   ########.fr       */
+/*   Updated: 2025/01/10 14:45:34 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ public:
 
 
 	std::vector<long> getOrganizedVector(void);
+	std::deque<long> getOrganizedDeque(void);
 	PmergeMe();
 	~PmergeMe();
 	PmergeMe(const PmergeMe &copy);
