@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 15:01:54 by bde-souz          #+#    #+#             */
-/*   Updated: 2025/01/10 14:45:34 by bde-souz         ###   ########.fr       */
+/*   Updated: 2025/01/20 13:59:55 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 #include <vector>
 #include <deque>
 #include <ctime>
+#include <limits>
 
 
 // COLORS //
@@ -36,6 +37,9 @@
 #define magenta "\033[35m"
 #define cyan "\033[36m"
 #define reset "\033[0m"
+
+static long int MAX_INT = std::numeric_limits<int>::max();
+static long int MIN_INT = std::numeric_limits<int>::min();
 
 class PmergeMe 
 {
@@ -82,7 +86,7 @@ public:
 	void splitIntoPairsDeque(void);
 	void organizePairsDeque(void);
 	void organizePairDequeRecursively(std::deque<std::pair<long, long> > &pairs);
-	void putSmallestNumberinDeque(void);
+	void putSmallestNumberInDeque(void);
 	void putTheRestDeque(void);
 	std::deque<long> createJacobDeque(void);
 	void binarySearchDeque(long number);

@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 15:01:52 by bde-souz          #+#    #+#             */
-/*   Updated: 2025/01/10 14:45:21 by bde-souz         ###   ########.fr       */
+/*   Updated: 2025/01/20 14:00:50 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void PmergeMe::organizeDeque(void)
 	//printDeque(this->_dequeOrganized); //DEBUG
 
 	// Phase 4
-	putSmallestNumberinDeque();
+	putSmallestNumberInDeque();
 	//std::cout << "\nVector atual, fase 4: ";
 	//printDeque(this->_dequeOrganized); //DEBUG
 
@@ -124,16 +124,9 @@ void PmergeMe::organizePairDequeRecursively(std::deque<std::pair<long, long> > &
 	pairs = sortedPairs;
 }
 
-void PmergeMe::putSmallestNumberinDeque(void)
+void PmergeMe::putSmallestNumberInDeque(void)
 {
-	if (this->_deque.size() % 2 != 0 && this->_dequePairs.size() == 0)
-	{
-		std::cout << red << "SmallestNumber condition" << "\n" << reset;
-		return ;
-	}
-	else
-		this->_dequeOrganized.insert(this->_dequeOrganized.begin(), this->_dequePairs[0].first);
-
+	this->_dequeOrganized.insert(this->_dequeOrganized.begin(), this->_dequePairs[0].first);
 }
 
 void PmergeMe::putTheRestDeque(void)
@@ -351,16 +344,7 @@ void PmergeMe::organizePairVectorRecursively(std::vector<std::pair<long, long> >
 // -- PHASE 4 -- //
 void PmergeMe::putSmallestNumberinVector(void)
 {
-	// if (this->_vector.size() % 2 != 0 && this->_vectorPairs.size() == 0)
-	// {
-	// 	std::cout << red << "SmallestNumber condition" << "\n" << reset;
-	// 	return ;
-	// }
-	// else
-	// {
 	this->_vectorOrganized.insert(this->_vectorOrganized.begin(), this->_vectorPairs[0].first);
-	// }
-	
 }
 
 // -- PHASE 5 -- //
@@ -416,7 +400,12 @@ void PmergeMe::printPairsVector(std::vector<std::pair<long, long> > &pair)
 void PmergeMe::argsToVector(int ac, char **av)
 {
 	for (int i = 1; i < ac; i++)
-		this->_vector.push_back(std::strtol(av[i], NULL, 0));
+	{
+		if (std::strtol(av[i], NULL, 0) > MAX_INT || std::strtol(av[i], NULL, 0) < MIN_INT)
+			throw std::runtime_error("Syntax Error! Number overflow!");
+		else
+			this->_vector.push_back(std::strtol(av[i], NULL, 0));
+	}
 }
 
 std::vector<long> PmergeMe::createJacobVector(void)
@@ -460,9 +449,6 @@ void PmergeMe::binarySearchVector(long number)
 	}
 	this->_vectorOrganized.insert(this->_vectorOrganized.begin() + start, number);
 }
-
-
-
 
 
 

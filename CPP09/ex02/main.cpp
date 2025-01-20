@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 15:01:47 by bde-souz          #+#    #+#             */
-/*   Updated: 2025/01/10 15:31:47 by bde-souz         ###   ########.fr       */
+/*   Updated: 2025/01/20 12:55:52 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,9 +107,9 @@ int main(int ac, char **av)
 	try
 	{
 		syntaxChecker(ac, av);
-		printBefore(ac, av);
 		Numbers.argsToVector(ac, av);
 		Numbers.argsToDeque(ac, av);
+		printBefore(ac, av);
 
 		std::clock_t startClock;
 		std::clock_t endClock;

@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 16:05:55 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/12/20 14:14:25 by bde-souz         ###   ########.fr       */
+/*   Updated: 2025/01/20 12:31:31 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void RPN::calculation(std::string input)
 			else if (str == "*")
 			{
 				result = numberA * numberB;
-				if (result > MAX_INT || result >> MAX_INT)
+				if (result > MAX_INT || result < MIN_INT)
 					throw std::runtime_error("Number Overflow!");
 			}
 			else if (str == "/")
@@ -82,7 +82,7 @@ void RPN::calculation(std::string input)
 				if (numberB == 0)
 					throw std::runtime_error("Number divided by Zero");
 				result = numberA / numberB;
-				if (result > MAX_INT || result >> MAX_INT)
+				if (result > MAX_INT || result < MIN_INT)
 					throw std::runtime_error("Number Overflow!");
 			}
 			this->_numberStack.push(result);
