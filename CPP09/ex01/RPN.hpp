@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 16:05:50 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/12/18 18:53:48 by bde-souz         ###   ########.fr       */
+/*   Updated: 2025/01/22 13:27:54 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 #include <cctype>
 #include <stdexcept>
 #include <limits>
+#include <algorithm>
 
 // COLORS //
 #define blue "\033[34m"

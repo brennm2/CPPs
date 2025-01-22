@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 16:05:55 by bde-souz          #+#    #+#             */
-/*   Updated: 2025/01/20 12:31:31 by bde-souz         ###   ########.fr       */
+/*   Updated: 2025/01/22 16:53:38 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,11 @@ void RPN::calculation(std::string input)
 	std::istringstream splited(input);
 	std::string str;
 	long number;
+
+	if (input.empty() || std::find_if(input.begin(), input.end(), std::not1(std::ptr_fun<int, int>(std::isspace))) == input.end())
+	{
+		throw std::runtime_error("Empty argument!");
+	}
 	
 	while (splited >> str)
 	{

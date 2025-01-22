@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 12:23:42 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/12/19 13:36:18 by bde-souz         ###   ########.fr       */
+/*   Updated: 2025/01/22 15:20:18 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,15 @@ void getValueDataBase(std::map<std::string, float> dataBase, std::string date, f
 		--it;
 	std::cout << date << " => ";
 	std::cout << value << " = ";
-	std::cout << it->second * value << "\n";
+
+	float result = it->second * value;
+
+	if (result > 1000000.0)
+		std::cout << std::fixed << std::setprecision(2) << result << "\n";
+	else
+		std::cout << result << "\n";
+
+
 }
 
 

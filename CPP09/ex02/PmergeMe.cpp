@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 15:01:52 by bde-souz          #+#    #+#             */
-/*   Updated: 2025/01/20 14:00:50 by bde-souz         ###   ########.fr       */
+/*   Updated: 2025/01/22 17:22:36 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -306,6 +306,7 @@ void PmergeMe::organizePairVectorRecursively(std::vector<std::pair<long, long> >
 
 	organizePairVectorRecursively(upPair);
 	organizePairVectorRecursively(downPair);
+	
 
 	std::vector<std::pair<long, long> > sortedPairs;
 

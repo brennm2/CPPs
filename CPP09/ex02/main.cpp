@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 15:01:47 by bde-souz          #+#    #+#             */
-/*   Updated: 2025/01/20 12:55:52 by bde-souz         ###   ########.fr       */
+/*   Updated: 2025/01/22 17:00:54 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,7 @@ int main(int ac, char **av)
 		std::clock_t endClock;
 
 		// Vector
+		std::cout << yellow << "\n⫘⫘⫘⫘⫘⫘  " << "VECTOR" << "  ⫘⫘⫘⫘⫘⫘" << "\n" << reset;
 		startClock = std::clock();
 		Numbers.organizeVector();
 		endClock = std::clock();
