@@ -6,7 +6,7 @@
 /*   By: bde-souz <bde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:34:14 by bde-souz          #+#    #+#             */
-/*   Updated: 2024/11/19 18:11:15 by bde-souz         ###   ########.fr       */
+/*   Updated: 2025/01/28 12:47:04 by bde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,11 @@ int main(void)
 
 		std::cout << yellow << "\n⫘⫘⫘⫘⫘⫘  " << "Form Shrubbery Creator" << "  ⫘⫘⫘⫘⫘⫘" << "\n" << reset;
 		form = newIntern.makeForm("shrubbery request", "home");
-		Brendon.signForm(*form);
-		Brendon.executeForm(*form);
-
+		if (form)
+		{
+			Brendon.signForm(*form);
+			Brendon.executeForm(*form);
+		}
 		std::cout << magenta << "\n\n⫘⫘⫘⫘⫘⫘  " << "DESTRUCTOR SEPARATOR" << "  ⫘⫘⫘⫘⫘⫘" << "\n" << reset;
 		delete form;
 	}
@@ -68,9 +70,11 @@ int main(void)
 
 		std::cout << yellow << "\n⫘⫘⫘⫘⫘⫘  " << "Form Robotomy Creator" << "  ⫘⫘⫘⫘⫘⫘" << "\n" << reset;
 		form = newIntern.makeForm("robotomy request", "school");
-		Brendon.signForm(*form);
-		Brendon.executeForm(*form);
-
+		if (form)
+		{
+			Brendon.signForm(*form);
+			Brendon.executeForm(*form);
+		}
 		std::cout << magenta << "\n\n⫘⫘⫘⫘⫘⫘  " << "DESTRUCTOR SEPARATOR" << "  ⫘⫘⫘⫘⫘⫘" << "\n" << reset;
 		delete form;
 	}
@@ -82,9 +86,11 @@ int main(void)
 
 		std::cout << yellow << "\n⫘⫘⫘⫘⫘⫘  " << "Form Robotomy Creator" << "  ⫘⫘⫘⫘⫘⫘" << "\n" << reset;
 		form = newIntern.makeForm("presidential request", "work");
-		Brendon.signForm(*form);
-		Brendon.executeForm(*form);
-
+		if (form)
+		{
+			Brendon.signForm(*form);
+			Brendon.executeForm(*form);
+		}
 		std::cout << magenta << "\n\n⫘⫘⫘⫘⫘⫘  " << "DESTRUCTOR SEPARATOR" << "  ⫘⫘⫘⫘⫘⫘" << "\n" << reset;
 		delete form;
 	}
